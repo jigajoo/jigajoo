@@ -1,0 +1,170 @@
+<ion-app>
+    <div class="ion-page" main>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start" (click)="back()">
+            <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+          </ion-buttons>
+          <ion-title>Edit Profile</ion-title>
+          <ion-buttons slot="end" (click)='saveProfile()'>
+            <ion-icon class="proSaveIcon" name="checkmark"></ion-icon>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content fullscreen class="ion-padding">
+        <div *ngIf="showUploadOption" class="uploadImageCamera">
+            <ion-row style="padding:0;margin:0">
+                <ion-col col-9 style="margin-top:10px">
+                        <span style="font-size:20px" >Select Option</span>
+                </ion-col>
+                <ion-col col-3 style="padding:0;margin:0">
+                    <ion-icon style="z-index:2;font-size: 30px;color:#FF3F40;margin-left:45%;margin-top:10%" (click)="UploadImageFromMediaClose()" name="close"></ion-icon>
+                </ion-col>
+            </ion-row>          
+            <ion-icon (click)="AccessGallery(1)" name="camera" style="font-size: 70px;color:white;padding:8px 45px 0 35px"></ion-icon>
+            <ion-icon (click)="AccessGallery(0)" name="folder-open-outline" style="font-size: 70px;color:white;"></ion-icon>
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="8">
+              <ion-row>
+                <ion-col size="12">
+                  <div class="proBig" (click)="UploadImageFromMedia('Profile_Image')" >
+                    <ion-icon name="add" class="proAddIcon" *ngIf="image === '' && image === 'assets/icon/img_input.svg'"></ion-icon>
+                    <img *ngIf="image != '' && image != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Profile_Image')" src="{{image}}" class="uplpadImageProfile">
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6">
+                  <div class="proSmall"  (click)="UploadImageFromMedia('Gallary1')">
+                    <!--img class="editProSmallImg" src="./assets/imgs/pro-avtar-img.jpg" /-->
+                    <ion-icon name="add" class="proAddIcon"  *ngIf="image1 === '' && image1 === 'assets/icon/img_input.svg'"></ion-icon>
+                    <img *ngIf="image1 == '' && image1 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image1')" src="{{image1}}" class="uplpadImageProfile">
+                  </div>
+                </ion-col>
+                <ion-col size="6">
+                  <div class="proSmall"  (click)="UploadImageFromMedia('Gallary2')">
+                    <ion-icon name="add" class="proAddIcon"  *ngIf="image2 === '' && image2 === 'assets/icon/img_input.svg'"></ion-icon>
+                    <img *ngIf="image2 != '' && image2 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image2')" src="{{image1}}" class="uplpadImageProfile">
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="12"  (click)="UploadImageFromMedia('Gallary3')">
+                  <div class="proSmall">
+                    <ion-icon name="add" class="proAddIcon"  *ngIf="image3 === '' && image3 === 'assets/icon/img_input.svg'"></ion-icon>
+                    <img *ngIf="image3 != ''&& this.image3 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image3')" src="{{image1}}" class="uplpadImageProfile">
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12"  (click)="UploadImageFromMedia('Gallary4')">
+                  <div class="proSmall">
+                    <ion-icon name="add" class="proAddIcon"  *ngIf="image4 === ''  && image4 === 'assets/icon/img_input.svg'"></ion-icon>
+                    <img *ngIf="image4 != ''&& image4 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image4')" src="{{image4}}" class="uplpadImageProfile">
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12"  (click)="UploadImageFromMedia('Gallary5')">
+                  <div class="proSmall">
+                    <ion-icon name="add" class="proAddIcon"  *ngIf="image5 === '' && image5 === 'assets/icon/img_input.svg'"></ion-icon>
+                    <img *ngIf="image5 != '' && image5 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image2')" src="{{image5}}" class="uplpadImageProfile">                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Name <span class="colorRed">*</span></ion-label>
+              <ion-input class="input-control"  [(ngModel)]="input_name" placeholder="Name"></ion-input>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Location</ion-label>
+              <ion-searchbar class="input-control" [(ngModel)]="autocomplete" placeholder="Location"></ion-searchbar>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Date Of Birth <span class="colorRed">*</span></ion-label>
+              <ion-datetime class="input-control" value="mm-dd-yyyy" [(ngModel)]="Date_Of_Birth"  placeholder="Date Of Birth"></ion-datetime>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Gender<span class="colorRed">*</span></ion-label>
+              <ion-radio-group allow-empty-selection  class="radioGroupField"  [(ngModel)]="Gender">
+                <ion-row>
+                  <ion-col *ngFor="let person of Gender_list">
+                    <ion-label>{{person.label}}</ion-label>
+                    <ion-radio value="{{person.value}}" checked="{{Gender ==  person.value}}" color="danger"></ion-radio>                                    
+                </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Favrouit Movie </ion-label>
+              <ion-input class="input-control" [(ngModel)]="Movie" placeholder="Movie"></ion-input>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Favrouit Song</ion-label>
+              <ion-input class="input-control" [(ngModel)]="song" placeholder="Song"></ion-input>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Hobbies</ion-label>
+              <ion-input class="input-control" [(ngModel)]="Hobbies" placeholder="Hobbies"></ion-input>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Hidden Secret</ion-label>
+              <ion-input class="input-control" [(ngModel)]="Secret" placeholder="Write Something"></ion-input>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Body Type</ion-label>
+              <ion-radio-group allow-empty-selection class="radioGroupField" [(ngModel)]="BodyType">
+                <ion-row>            
+                  <ion-col *ngFor="let bd of body_type">
+                    <ion-label>{{bd}}</ion-label>
+                    <ion-radio value="{{bd}}" checked="{{BodyType ==  bd}}" color="danger"></ion-radio>                                    
+                </ion-col>   
+                </ion-row>
+              </ion-radio-group>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Dating Prefrences</ion-label>
+              <ion-radio-group allow-empty-selection class="radioGroupField" [(ngModel)]="gender_pref">
+                <ion-row>     
+                  <ion-col *ngFor="let person of Dating_Prefrences">
+                    <ion-label>{{person}}</ion-label>
+                    <ion-radio value="{{person}}"  checked="{{gender_pref ==  person}}" color="danger"></ion-radio>                                    
+                </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Education</ion-label>
+              <ion-radio-group allow-empty-selection class="radioGroupField" [(ngModel)]="Education">
+                <ion-row>
+                  <ion-col *ngFor="let list of Education_List">
+                    <ion-label>{{list}}</ion-label>
+                    <ion-radio value ="{{list}}" checked="{{Education == list}}" color="danger"></ion-radio>                                    
+                </ion-col>  
+                </ion-row>
+              </ion-radio-group>
+            </ion-col>
+            <ion-col size="12" class="mb-10">
+              <ion-label class="label-control">Career</ion-label>
+              <ion-radio-group allow-empty-selection class="radioGroupField" [(ngModel)]="profession">
+                <ion-row>
+                  <ion-col *ngFor="let list of Carrier_List">
+                    <ion-label>{{list}}</ion-label>
+                    <ion-radio value="{{list}}" checked="{{profession == list}}" color="danger"></ion-radio>                                    
+                </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </div>
+  </ion-app>

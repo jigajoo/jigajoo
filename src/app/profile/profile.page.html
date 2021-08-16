@@ -1,0 +1,52 @@
+<ion-app>
+     <div class="ion-page" main>
+       <ion-header>
+         <ion-toolbar>
+           <ion-buttons slot="start" (click)="goBack()">
+             <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+           </ion-buttons>
+           <ion-title>Profile</ion-title>
+         </ion-toolbar>
+       </ion-header>
+       <ion-content class="ion-padding">
+         <div class="circle-container">
+           <a>
+             <img class="proImgView" src="./assets/imgs/img_avatar.png" />
+             <div class="proActiveSignal"></div>
+           </a>
+           <a (click)="presentConfirm('Career')" class='deg0'>
+             <ion-icon name="location" class="pmstyle defultIcons"></ion-icon>
+             <p class="txtstyle">Work Status</p>
+           </a>
+           <a (click)="presentConfirm('Favourite Music')" class='deg45'>
+             <ion-icon name="school" class="pmstyle defultIcons"></ion-icon>
+             <p class="txtstyle">Favourite<br>Music</p>
+           </a>
+           <a (click)="presentConfirm('Favourite Movies')" class='deg90'>
+             <ion-icon name="trending-up" class="pmstyle defultIcons"></ion-icon>
+             <p class="txtstyle">Favourite<br>Movies</p>
+           </a>
+           <a (click)="presentConfirm('Hobbies & Interest')" class='deg135'>
+             <ion-icon name="musical-notes" class="pmstyle defultIcons"></ion-icon>
+             <p class="txtstyle">Hobbies<br>& Interest</p>
+           </a>
+           <a (click)="presentConfirm('Secrets')" class='deg180'>
+             <ion-icon name="videocam" class="pmstyle defultIcons"></ion-icon>
+             <p class="txtstyle">My Secret<br> Desire</p>
+           </a>
+           <a (click)="presentConfirm('Basic Info')" class='deg225'>
+             <ion-icon name="book" class="pmstyle defultIcons"></ion-icon>
+             <p class="txtstyle">My<br>Basic Info</p>
+           </a>
+           <a (click)="presentConfirm('Location')" class='deg270'>
+             <ion-icon name="eye" class="pmstyle defultIcons"></ion-icon>
+             <p class="txtstyle">My<br> Location</p>
+           </a>
+           <a (click)="presentConfirm('Education')" class='deg315'>
+             <ion-icon name="happy" class="pmstyle defultIcons"></ion-icon>
+             <p class="txtstyle">My<br>Education</p>
+           </a>
+         </div>
+       </ion-content>
+     </div>
+   </ion-app>

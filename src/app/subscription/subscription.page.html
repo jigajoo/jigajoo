@@ -1,0 +1,154 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start" (click)=return()>
+          <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Subscription</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item class="ionTableView pStartEnd0" lines="none">
+        <table>
+          <thead class="tableHeader">
+            <tr >
+              <th align="left"><strong class="colorRed">Feature</strong></th>
+              <th  *ngFor="let packageName of packageList " align="center">{{packageName.package_name}}</th>
+              <th></th>
+              <!--th align="center">Basic</th>
+              <th align="center">Gold</th>
+              <th align="center">Platinum</th-->
+            </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let packageName of featurePackageMatrix ">
+              <td align="left">{{packageName.featureName}}</td>
+              <td align="center" *ngFor="let checkFeature of packageName.packageList ; let i = index" >
+                <ion-icon name="close" *ngIf="checkFeature==1" class="colorRed"></ion-icon>
+                <ion-icon name="checkmark" *ngIf="checkFeature==0" class="colorGreen"></ion-icon>
+                <span span *ngIf="checkFeature==2">
+                  <span *ngIf="packageName.Counter[i]!=0" class="colorGreen">{{packageName.Counter[i]}}</span>
+                  <span *ngIf="packageName.Counter[i]==0" class="colorRed">10</span>
+                </span>
+
+              </td>
+              <!-- View user & Swipetd align="center">
+                <ion-icon name="checkmark" class="colorGreen"></ion-icon>
+              </td>
+              <td align="center">
+                <ion-icon name="close" class="colorRed"></ion-icon>
+              </td>
+              <td align="center"><span class="colorGreen">10</span></td-->
+            </tr>
+            <!--tr>
+              <td align="left">View user & Swipe</td>
+              <td align="center">
+                <ion-icon name="checkmark" class="colorRed"></ion-icon>
+              </td>
+              <td align="center">
+                <ion-icon name="checkmark" class="colorGreen"></ion-icon>
+              </td>
+              <td align="center">
+                <ion-icon name="close" class="colorRed"></ion-icon>
+              </td>
+              <td align="center"><span class="colorGreen">10</span></td>
+            </tr>
+            <tr>
+              <td align="left">View user & Swipe</td>
+              <td align="center">
+                <ion-icon name="checkmark" class="colorRed"></ion-icon>
+              </td>
+              <td align="center">
+                <ion-icon name="checkmark" class="colorGreen"></ion-icon>
+              </td>
+              <td align="center">
+                <ion-icon name="close" class="colorRed"></ion-icon>
+              </td>
+              <td align="center"><span class="colorGreen">10</span></td>
+            </tr>
+            <tr>
+              <td align="left">First Date Auto Suggestion</td>
+              <td align="center">
+                <ion-icon name="checkmark" class="colorRed"></ion-icon>
+              </td>
+              <td align="center">
+                <ion-icon name="checkmark" class="colorGreen"></ion-icon>
+              </td>
+              <td align="center">
+                <ion-icon name="close" class="colorRed"></ion-icon>
+              </td>
+              <td align="center"><span class="colorGreen">10</span></td>
+            </tr-->
+          </tbody>
+        </table>
+      </ion-item>
+      <ion-card-content class="pt-30 pb-5 px-0">
+        <ion-item class="cardShapeRound borderRed" lines="none">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4" class="" *ngFor="let packageName of content" >
+                <ion-card-content class="subCardCont1 p-0" *ngIf="packageName.User_id; else FINISH_MATCH">
+                  <ion-item class="cardShapeRound pStartEnd5" lines="none">
+                    <ion-label class="textCenter marginInline-0">
+                      <p class="subCardContThree colorRed">{{packageName.package_name}}</p>
+                      <p class="subCardContThree">{{packageName.rate}}</p>
+                      <p class="subCardContThree colorRed">/{{packageName.period}}</p>
+                    </ion-label>
+                  </ion-item>
+                </ion-card-content>
+                <ng-template #FINISH_MATCH>
+                  <ion-card-content class="subCardCont p-0 ">
+                    <ion-item class="cardShapeRound pStartEnd5" lines="none"   (click)="selectedPackage(packageName.period,packageName.id,packageName.validity,packageName.package_name,packageName.currency,packageName.rate,packageName.id,packageName.package_rank)">
+                      <ion-label class="textCenter marginInline-0">
+                        <p class="subCardContThree colorRed">{{packageName.package_name}}</p>
+                        <p class="subCardContThree">{{packageName.rate}}</p>
+                        <p class="subCardContThree colorRed">/{{packageName.period}}</p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-card-content>
+                </ng-template>
+              </ion-col>
+              <!--ion-col size="4" class="">
+                <ion-card-content class="subCardCont p-0 ">
+                  <ion-item class="cardShapeRound pStartEnd5" lines="none">
+                    <ion-label class="textCenter marginInline-0">
+                      <p class="subCardContThree colorRed">Basic</p>
+                      <p class="subCardContThree">$25</p>
+                      <p class="subCardContThree colorRed">/Month</p>
+                    </ion-label>
+                  </ion-item>
+                </ion-card-content>
+              </ion-col>
+              <ion-col size="4" class="">
+                <ion-card-content class="subCardCont p-0 ">
+                  <ion-item class="cardShapeRound pStartEnd5" lines="none">
+                    <ion-label class="textCenter marginInline-0">
+                      <p class="subCardContThree colorRed">Gold</p>
+                      <p class="subCardContThree">$35</p>
+                      <p class="subCardContThree colorRed">/Month</p>
+                    </ion-label>
+                  </ion-item>
+                </ion-card-content>
+              </ion-col>
+              <ion-col size="4" class="">
+                <ion-card-content class="subCardCont p-0 ">
+                  <ion-item class="cardShapeRound pStartEnd5" lines="none">
+                    <ion-label class="textCenter marginInline-0">
+                      <p class="subCardContThree colorRed">Platinum</p>
+                      <p class="subCardContThree">$45</p>
+                      <p class="subCardContThree colorRed">/Month</p>
+                    </ion-label>
+                  </ion-item>
+                </ion-card-content>
+              </ion-col-->
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-card-content>
+      <!-- <section>
+        <ion-button class="mt-10" shape="round" color="danger" expand="block" (click)="buy()">Buy Membership</ion-button>
+      </section> -->
+    </ion-content>
+  </div>
+</ion-app>

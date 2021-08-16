@@ -1,0 +1,142 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start" (click)="backpage()">
+          <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Buy Features</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-grid *ngIf="content">
+        <ion-row>
+          <ion-col size="6" *ngFor="let data of content">
+            <ion-card-content class="p-0">
+              <ion-item class="cardShapeRound borderRed gradientBlack" lines="none"
+                (click)="use(data.Package_Logo,data['package_id'],data['features_id'])">
+                <ion-label class="textCenter">
+                  <img class="featureImg" src="http://jigaju.esy.es/assets/images/{{data.Package_Logo}}" />
+                  <h2 class="colorRed">{{data['package_name']}}</h2>
+                  <p class="colorWhite brackSpaceText">{{data['Package_Desc']}}</p>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Model popup -->
+      <div class="ionicModal" *ngIf="buyinfo">
+        <div class="modalPadding modalBody">
+          <div class="featureImgCont featureBoost">
+            <ion-label class="textCenter">
+              <img class="featureImg" src="http://jigaju.esy.es/assets/images/AutoSwipe.png" />
+              <h2 class="colorRed">Auto Swipe</h2>
+            </ion-label>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-card-content class="p-0">
+                    <ion-item class="cardShapeRound boostActive gradientBlack" lines="none">
+                      <ion-label class="textCenter">
+                        <p class="brackSpaceText">Boost</p>
+                        <p class="brackSpaceText">Packs:1</p>
+                        <p class="brackSpaceText">2/Month</p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-card-content>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-card-content class="p-0">
+                    <ion-item class="cardShapeRound gradientBlack" lines="none">
+                      <ion-label class="textCenter">
+                        <p class="brackSpaceText">Boost</p>
+                        <p class="brackSpaceText">Packs:5</p>
+                        <p class="brackSpaceText">8/Month</p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-card-content>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-card-content class="p-0">
+                    <ion-item class="cardShapeRound gradientBlack" lines="none">
+                      <ion-label class="textCenter">
+                        <p class="brackSpaceText">Boost</p>
+                        <p class="brackSpaceText">Packs:10</p>
+                        <p class="brackSpaceText">10/Month</p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-card-content>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <section>
+              <ion-button shape="round" color="danger" *ngIf="haspurchasedDiv" (click)="buymore()">Buy More</ion-button>
+              <ion-button shape="round" color="danger" *ngIf="!haspurchasedDiv" (click)="buy()">Buy Now</ion-button>
+              <ion-button shape="round" color="danger" (click)="back()">Cancel</ion-button>
+            </section>
+          </div>
+        </div>
+      </div>
+      <!-- / Model popup -->
+
+      <div id="buyDiv" *ngIf="buyinfo" style='margin-top:11%; display: none;'>
+        <ion-row>
+          <ion-col col-12>
+            <div class="DivPurchaseDialog" style="top: -21em;">
+              <div *ngIf="haspurchasedDiv; else NEXT_DIV">
+                <div id="myDiv" *ngIf="info"
+                  style="position: relative ;top:5% ;margin-bottom: 12px;height: 31vw; width: 17vw;left: 40%;border-radius: 5px;border: 2px solid red;">
+                  <img style="height:45px;width:35px;margin: 10% 0 0 -5%;position: fixed;"
+                    src="http://jigaju.esy.es/assets/images/{{Logo}}">
+                  <div id="chartdiv"
+                    style="background-image: -webkit-linear-gradient(-55deg, #404041 50%, rgb(103, 103, 104) 100%) !important; width: 100%;border-radius: 5px;">
+                    <img style="height:45px;width:35px;margin: 10% 0 0 -5%;position: fixed;"
+                      src="http://jigaju.esy.es/assets/images/{{Logo}}">
+                    <div style="font-size: 15px;font-family: none;padding-top: 2px;color: red;margin-left: 8%;">
+                      {{Consumed_Count}}/{{Purchased_count}}</div>
+                  </div>
+                </div>
+              </div>
+              <ng-template #NEXT_DIV>
+                <div style="padding: 10px 0 5px 0;">
+                  <span>
+                    <img style="height:40px;width:40px" src="http://jigaju.esy.es/assets/images/{{logo}}">
+                  </span>
+                </div>
+                <div style="padding:  5px 0 10px 0;">
+                  <div style="font-size: 16px;color:#fe2829;font-family: none;">{{name}}</div>
+                </div>
+              </ng-template>
+              <ion-row>
+                <ion-col col-4 *ngFor="let data of packageData; let i = index">
+                  <ion-card class="cards-scheme" [ngClass]="packageSelected===data?'activeborder':'cards'"
+                    (click)="SelectPackage(packageData,i)">
+                    <ion-card-header style="font-size: 12px;" class="card-head-scheme"
+                      [ngClass]="packageSelected===data?'active':'card-head'">
+                      {{data.Product_Catagory}}
+                    </ion-card-header>
+                    <ion-card-content style="padding: 0px;">
+                      <p style="font-size: 11px;text-decoration: none;" class="card-price-scheme"
+                        [ngClass]="packageSelected===data?'active':'card-manual-scheme'">Packs :{{data.pack}}</p>
+                      <p style="font-size: 11px;text-decoration: none;" class="card-manual-scheme"
+                        [ngClass]="packageSelected===data?'active':'card-manual-scheme'">{{data.Monthly_price}}/Month
+                      </p>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+                <ion-col col-12>
+                  <button ion-button *ngIf="haspurchasedDiv" class="continueBtn" round (click)="buymore()">Buy
+                    More</button>
+                  <button ion-button *ngIf="!haspurchasedDiv" class="continueBtn" round (click)="buy()">Buy Now</button>
+                  <button ion-button class="continueBtn" round (click)="back()">Cancel</button>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-content>
+  </div>
+</ion-app>

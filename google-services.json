@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "146963155881",
+    "firebase_url": "https://jigajoo-49fb4.firebaseio.com",
+    "project_id": "jigajoo-49fb4",
+    "storage_bucket": "jigajoo-49fb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146963155881:android:d0cf72a1542927844512b8",
+        "android_client_info": {
+          "package_name": "com.Jigajoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146963155881-dsam3qrmsd7k1vapqpnvfif1d6a2csv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADs8WkQaoSq9ci2TwMK3D2CfaQSuL8Yxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146963155881-dsam3qrmsd7k1vapqpnvfif1d6a2csv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

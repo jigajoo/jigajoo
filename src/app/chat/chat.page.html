@@ -1,0 +1,114 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start" (click)="back()">
+          <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Messages</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-no-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <ion-card-content class="p-0"  (click)='chat()'>
+              <ion-item class="cardShapeRound chatActive" lines="none">
+                <ion-icon name="chatbubbles" id="chatboxesid" class="cahtTabIcon"></ion-icon><span class="chatIconText" id="chatboxesid2">Chat</span>
+              </ion-item>
+            </ion-card-content>
+          </ion-col>
+          <ion-col size="4" (click)='wholike()'>
+            <ion-card-content class="p-0">
+              <ion-item class="cardShapeRound" lines="none">
+                <ion-icon name="heart"  id="heart" class="cahtTabIcon"></ion-icon><span  id="heart2" class="chatIconText">Who likes you?</span>
+              </ion-item>
+            </ion-card-content>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card-content class="p-0" (click)='wishlist()'>
+              <ion-item class="cardShapeRound" lines="none">
+                <ion-icon name="bookmarks" id="bookmarks" class="cahtTabIcon"></ion-icon><span id="bookmarks2" class="chatIconText">Wishlist</span>
+              </ion-item>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-content class="pt-10 pb-5 px-10"  *ngIf="info">
+        <ion-item class="cardShapeRound" lines="none" *ngFor="let data of content; let i = index">
+          <ion-avatar slot="start" class="mr-0" (click)="profile(data)">
+            <img class="Proimg" src="http://jigaju.esy.es/uploads/thumbnail/{{data.profile_image}}" />
+          </ion-avatar>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="8">
+                <ion-label>
+                  <h3 class="colorRed">{{data.fname}} <span class="mcoCounter">{{data.age}}</span></h3>
+                  <h3>{{data.about}}</h3>
+                </ion-label>
+              </ion-col>
+              <ion-col size="2" class="centerVH" (click)="chatFriend(data.ejuser,data.fname,data.profile_image,data.id)">
+                <ion-icon name="chatbubbles" class="defultIcons"></ion-icon>
+              </ion-col>
+              <ion-col size="2" class="centerVH">
+                <ion-icon name="remove-circle" class="defultIcons" (click)="blockuser(data.id,i)"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-card-content>
+      <ion-card-content class="pt-10 pb-5 px-10"  *ngIf="hideMe" >
+        <ion-item class="cardShapeRound" lines="none" *ngFor="let data of contentwholike; let i = index" id="likes{{data.id}}">
+          <ion-avatar slot="start" class="mr-0" (click)="profile(data)">
+            <img class="Proimg" src="http://jigaju.esy.es/uploads/thumbnail/{{data.profile_image}}" />
+          </ion-avatar>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="8">
+                <ion-label>
+                  <h3 class="colorRed">{{data.fname}} <span class="mcoCounter">{{data.age}}</span></h3>
+                  <h3>{{data.about}}</h3>
+                </ion-label>
+              </ion-col>
+              <ion-col size="2" class="centerVH" >
+                <span> 
+                  <ion-icon name="thumbs-up"  class="defultIcons" (click)="like(data.id,i)">
+                  </ion-icon>
+                  <ion-icon name="thumbs-down" class="defultIcons" (click)="dislike(data.id,i)"></ion-icon>
+                </span>
+              </ion-col>
+              <ion-col size="2" class="centerVH">
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-card-content>
+      <ion-card-content class="pt-10 pb-5 px-10"  *ngIf="hide">
+        <ion-item class="cardShapeRound" lines="none" *ngFor="let data of contentwishlist; let i = index">
+          <ion-avatar slot="start" class="mr-0" (click)="profile(data)">
+            <img class="Proimg" src="http://jigaju.esy.es/uploads/thumbnail/{{data.profile_image}}" />
+          </ion-avatar>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="8">
+                <ion-label>
+                  <h3 class="colorRed">{{data.fname}} <span class="mcoCounter">{{data.age}}</span></h3>
+                  <h3>{{data.about}}</h3>
+                </ion-label>
+              </ion-col>
+              <ion-col size="2" class="centerVH" >
+                <span> 
+                  <ion-icon name="thumbs-up"  class="defultIcons" (click)="wishlike(data.id,'2.5',i)">
+                  </ion-icon>
+                  <ion-icon name="thumbs-down" class="defultIcons" (click)="wishdislikefriend(data.id,'0',i)"></ion-icon>
+                </span>
+              </ion-col>
+              <ion-col size="2" class="centerVH">
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-card-content>
+    </ion-content>
+  </div>
+</ion-app>

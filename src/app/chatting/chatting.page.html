@@ -1,0 +1,92 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start" (click)="back()">
+          <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Chatting</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-no-padding" #content>
+      <ion-list>
+        <!--ion-item class="youSms" lines="none">
+          <ion-avatar>
+            <img class="Proimg" src="./assets/imgs/img_avatar.png" />
+          </ion-avatar>
+          <div class="smsCont">
+            <p>Sweet! So, what do you wanna do today? Sweet! So, what do you wanna do today?</p>
+            <span class="time-right">11:02</span>
+          </div>
+        </ion-item>
+        <ion-item class="meSms" lines="none">
+          <ion-avatar>
+            <img class="Proimg" src="./assets/imgs/img_avatar.png" />
+          </ion-avatar>
+          <div class="smsCont">
+            <p>Sweet! So, what do you wanna do today? Sweet! So, what do you wanna do today?</p>
+            <span class="time-right">11:02</span>
+          </div>
+        </ion-item>
+        <ion-item class="youSms" lines="none">
+          <ion-avatar>
+            <img class="Proimg" src="./assets/imgs/img_avatar.png" />
+          </ion-avatar>
+          <div class="smsCont">
+            <p>Sweet!</p>
+            <span class="time-right">11:02</span>
+          </div>
+        </ion-item>
+        <ion-item class="meSms" lines="none">
+          <ion-avatar>
+            <img class="Proimg" src="./assets/imgs/img_avatar.png" />
+          </ion-avatar>
+          <div class="smsCont">
+            <p>Sweet! So, what do you wanna</p>
+            <span class="time-right">11:02</span>
+          </div>
+        </ion-item--> 
+          <ion-item   lines="none"  *ngFor = "let item of allmessages; let i = index">
+            <div class="meSms" *ngIf="item.sentby != friend.uid" >
+              <ion-avatar >
+                <img class="Proimg" src="{{photoURL}}" />
+              </ion-avatar>
+              <div class="smsCont" >
+                <p>{{item.message}}</p>
+                <span class="time-right">{{item.timestamp}}</span>
+              </div>
+            </div>
+            <div  class="youSms" *ngIf="item.sentby === friend.uid">
+              <ion-avatar>
+                <img class="Proimg" src="{{friend.photoURL}}" />
+              </ion-avatar>
+              <div class="smsCont">
+                <p>{{item.message}}</p>
+                <span class="time-right">{{item.timestamp}}</span>
+              </div>
+
+            </div>
+            
+          </ion-item>
+          <!--ion-item class="youSms" lines="none" *ngIf="item.sentby === friend.uid">
+            <ion-avatar>
+              <img class="Proimg" src="{{friend.photoURL}}" />
+            </ion-avatar>
+            <div class="smsCont">
+              <p>{{item.message}}</p>
+              <span class="time-right">{{item.timestamp}}</span>
+            </div>
+          </ion-item-->
+        
+      </ion-list>
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar class="px-10">
+        <ion-input class="input-control" [(ngModel)]="newmessage" placeholder="Write your message ..."></ion-input>
+        <ion-buttons slot="end" (click)="addmessage()">
+          <ion-icon name="send" class="chattingSendIcon"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+</ion-app>

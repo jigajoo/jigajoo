@@ -1,0 +1,96 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title class="textCenter">Profile</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content fullscreen class="ion-padding">
+      <ion-list>
+        <ion-list-header>
+          <ion-label class="textCenter">{{page}}/4</ion-label>
+        </ion-list-header>
+        <ion-progress-bar color="danger" value={{obVar.progress}}></ion-progress-bar>
+      </ion-list>
+      <ion-grid>
+        <ion-row *ngFor="let data of content; let i=index ">
+          <ion-label class="label-control">{{data.question}}<span *ngIf="data.mandatory==1" class="colorRed">*</span>
+          </ion-label>
+          <ion-col size="12" class="mb-10" *ngIf="data.question_type == 'radio' && data.columns_name !=='sexual_orientation'">
+            <ion-radio-group allow-empty-selection class="radioGroupField">
+              <ion-row>
+                <ion-col *ngFor="let opt of radioOpt; let j = index">
+                  <div *ngIf="radioOpt[i][j] !=  null" class="fx">
+                    <ion-label>{{radioOpt[i][j]}}</ion-label> 
+                    <ion-radio color="danger" (ionFocus)="getValue(radioOpt[i][j],data.columns_name)"
+                      [ngModel]="radioOpt[i][j]"></ion-radio>                  
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+          </ion-col>
+          <ion-col size="12" class="mb-10" *ngIf="data.question_type == 'radio' && data.columns_name =='sexual_orientation'">
+            <ion-radio-group allow-empty-selection class="radioGroupField">
+              <ion-row>
+                <ion-col size="6" *ngFor="let opt of radioOpt; let j = index">
+                  <div *ngIf="radioOpt[i][j] !=  null" class="fx">
+                    <ion-label>{{radioOpt[i][j]}}</ion-label> 
+                    <ion-radio color="danger" (ionFocus)="getValue(radioOpt[i][j],data.columns_name)"
+                      [ngModel]="radioOpt[i][j]"></ion-radio>                  
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+          </ion-col>
+          <ion-col size="12" class="mb-10" *ngIf="data.question_type == 'dropdown'">
+            <ion-select placeholder="Select One" [(ngModel)]="select[i]">
+              <ng-container *ngFor="let opt of dropOpt; let j = index">
+                <ion-select-option *ngIf="dropOpt[i][j] != null">{{dropOpt[i][j]}}
+                </ion-select-option>
+              </ng-container>
+            </ion-select>
+          </ion-col>
+
+          <ion-col size="12" class="mb-10" *ngIf="data.question_type == 'inputbox'">
+            <ion-input class="input-control" [(ngModel)]="input[i]"></ion-input>
+          </ion-col>
+
+          <ion-col size="12" class="mb-10" *ngIf="data.question_type == 'slider'">
+            <ion-list class="p-0 transparentBg">
+              <ion-label class="label-control pull-right">20-74</ion-label>
+              <div class="clear"></div>
+              <ion-item class="rangeItemField" lines="none">
+                <ion-range id="dual-range" min="18" max="70" [(ngModel)]="structure[i]"
+                  dual-knobs pin color="danger"></ion-range>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+
+          <ion-col size="12" class="mb-10" *ngIf="data.question_type == 'checkbox'">
+            <!-- <ion-label class="label-control">I am Seeking <span class="colorRed">*</span></ion-label> -->
+            <ion-radio-group allow-empty-selection class="radioGroupField">
+              <ion-row>
+                <ion-col *ngFor="let opt of checkOpt; let j = index">
+                  <div *ngIf="checkOpt[i][j] !=  null" class="fx">
+                    <ion-label>{{checkOpt[i][j]}}</ion-label>
+                    <ion-checkbox color="danger" [(ngModel)]="check[i][j]"></ion-checkbox>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+          </ion-col>
+
+          <ion-col size="12" class="mb-10" *ngIf="data.question_type == 'textarea'">
+            <!-- <ion-label class="label-control">Bio <span class="colorRed">*</span></ion-label> -->
+            <ion-textarea class="input-control" placeholder="Enter more information here..." [(ngModel)]="text[i]"></ion-textarea>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <section>
+        <ion-button class="mt-10" *ngIf="page!=4 && page!=5" (click)="goNext()" shape="round" color="danger">Next</ion-button>
+        <ion-button class="mt-10" *ngIf="page==3" shape="round" color="danger" (click)="skip()">Skip</ion-button>
+        <ion-button class="mt-10" *ngIf="page==4 || page==5" shape="round" color="danger" (click)="goNext()">Submit</ion-button>
+      </section>
+    </ion-content>
+  </div>
+</ion-app>

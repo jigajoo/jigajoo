@@ -1,0 +1,115 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-content fullscreen class="ion-padding">
+      <ion-slides *ngIf="displayname && displayname.length " autoplay="1000" loop="true" speed="500" pager="true">
+        <ion-slide *ngFor="let featureName of displayname; let i = index ">
+          <p>{{featureName}}</p>
+          <div class="slideIconBase">
+            <img src="http://jigaju.esy.es/assets/images/{{img2[i]}}" class="funnel">
+            <ion-icon name="send" class="chattingSendIcon"></ion-icon>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <p>First Date Auto Suggestion</p>
+          <div class="slideIconBase">
+            <ion-icon name="send" class="chattingSendIcon"></ion-icon>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <p>Participate in Speed Dating</p>
+          <div class="slideIconBase">
+            <ion-icon name="send" class="chattingSendIcon"></ion-icon>
+          </div>
+        </ion-slide>
+      </ion-slides>
+
+      <ion-row class="cardRow" style="display: none;">
+        <div style=" z-index: 99; margin:auto" *ngFor="let packageName of content; let i = index">
+          <ion-card class="cards" [ngClass]="test===packageName.package_name?'activeborder':'cards'" col-4
+            (click)="package(packageName,i)">
+            <ion-card-header class="card-head" [ngClass]="test===packageName.package_name?'active':'card-head'">
+              {{packageName.package_name}}
+            </ion-card-header>
+            <ion-card-content>
+              <p class="card-manual" [ngClass]="test===packageName.package_name?'active':'card-manual'">Package</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-row>
+
+      <!--By Santanu-->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let packageName of content; let i = index">
+            <ion-card-content class="p-0" [ngClass]="test===packageName.package_name?'activeborder':'cards'" (click)="package(packageName,i)">
+              <ion-item class="cardShapeRound gradientBlack "  [ngClass]="test===packageName.package_name?'activePackage':''" lines="none">
+                <ion-label class="textCenter">
+                  <p class="brackSpaceText" [ngClass]="test===packageName.package_name?'active':'card-head'">{{packageName.package_name}}</p>
+                  <p class="brackSpaceText" [ngClass]="test===packageName.package_name?'active':'card-manual'">Package</p>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row *ngIf="packageSelected">
+          <ion-col size="4" *ngFor="let package of packageSelected.Product_Title.split(','); let i = index">
+            <ion-card-content class="p-0">
+              <ion-item class="cardShapeRound gradientBlack "  (click)="SelectPackage(packageSelected,i)" [ngClass]="selectedPackageScheme===package?'activePackage':''" lines="none">
+                <ion-label class="textCenter" >
+                  <p class="brackSpaceText" [ngClass]="test===package?'active':'card-head-scheme'">{{package}}</p>
+                  <p class="brackSpaceText" [ngClass]="selectedPackageScheme===package?'active1':'card-manual-scheme'">
+                    Packs:{{packageSelected.Product_Pack.split(',')[i]}}</p>
+                  <p class="brackSpaceText" [ngClass]="selectedPackageScheme===package?'active1':'card-manual-scheme'">
+                    {{packageSelected.currency}} {{packageSelected.price_rm.split(',')[i]}}/{{packageSelected.period}}
+                  </p>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <section>
+        <ion-button shape="round" color="danger mt-10" expand="block" (click)="BuySubscription()">Buy Now</ion-button>
+        <ion-button shape="round" color="danger mt-10" expand="block" (click)="cancelBuy()">Cancel</ion-button>
+      </section>
+      <!--/By Santanu-->
+
+      <div *ngIf="packageSelected" class="DivPurchaseDialog" style="display: none;">
+        <ion-row style="padding:0px;margin:auto">
+          <div style="position: relative; width:500px;max-width:33%;padding: 0px; margin: auto"
+            *ngFor="let package of packageSelected.Product_Title.split(','); let i = index">
+            <div class='cards1' [ngClass]="selectedPackageScheme===package?'activeborder1':'cards1'"
+              (click)="SelectPackage(packageSelected,i)">
+              <div class="card-head-scheme" [ngClass]="test===package?'active':'card-head-scheme'">
+                {{package}}
+              </div>
+              <div>
+                <p [ngClass]="selectedPackageScheme===package?'active1':'card-manual-scheme'">Packs :
+                  {{packageSelected.Product_Pack.split(',')[i]}}</p>
+                <p [ngClass]="selectedPackageScheme===package?'active1':'card-manual-scheme'">
+                  {{packageSelected.currency}} {{packageSelected.price_rm.split(',')[i]}}/{{packageSelected.period}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <ion-col col-12>
+            <section>
+              <ion-button class="mt-10" shape="round" color="danger" expand="block" (click)="BuySubscription()">Buy Now
+              </ion-button>
+            </section>
+            <section>
+              <ion-button class="mt-10" shape="round" color="danger" expand="block" (click)="cancelBuy()">Cancel
+              </ion-button>
+            </section>
+          </ion-col>
+        </ion-row>
+      </div>
+
+
+
+
+    </ion-content>
+  </div>
+</ion-app>

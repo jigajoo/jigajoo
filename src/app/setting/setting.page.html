@@ -1,0 +1,143 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+ 
+        <ion-buttons slot="start" (click)="return()"> 
+          <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Setting</ion-title>
+        <ion-buttons slot="end"  (click)='saveProfile()'>
+          <ion-icon class="proSaveIcon" name="checkmark"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content fullscreen class="ion-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="mb-10">
+            <ion-label class="label-control">Phone Number</ion-label>
+            <ion-input class="input-control" maxlength="15" value="{{phone}}" type="tel " [(ngModel)]="phone" placeholder="Phone Number"></ion-input>
+          </ion-col>
+          <ion-col size="12" class="mb-10">
+            <ion-label class="label-control">Email</ion-label>
+            <ion-input class="input-control" placeholder="Email" value="" placeholder="email@gmail.com" value="{{email}}" readonly></ion-input>
+          </ion-col>
+          <ion-col size="12" class="mb-10">
+            <ion-label class="label-control">Location</ion-label>
+            <ion-searchbar class="input-control"  value="{{autocomplete}}" style="background-color: #3d3d3d; border-width: 0px !important" [(ngModel)]="autocomplete" (input)="updateSearchResults()" placeholder="Location" (click)="getUserCurrentLocation()"></ion-searchbar>
+          </ion-col>
+          <div class="list-md" [hidden]="autocompleteItems.length == 0">
+              <ion-item class="input-field" *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+                  {{ item.description }}
+              </ion-item>
+          </div>
+          <ion-col size="12" class="mb-10">
+            <ion-list class="p-0">
+              <ion-label class="label-control pull-left">Distance<span class="subText">(miles)</span></ion-label>
+              <ion-label class="label-control pull-right">{{rang.lower}}-{{rang.upper}}</ion-label>
+              <div class="clear"></div>
+              <ion-item class="rangeItemField" lines="none">
+                <ion-range id="dual-range" dual-knobs pin color="danger" [(ngModel)]="rang"></ion-range>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+          <ion-col size="12" class="mb-10">
+            <ion-label class="label-control">Dating Prefrences</ion-label>
+            <ion-radio-group allow-empty-selection class="radioGroupField" [(ngModel)]="Date_Pref_Grp" (ionChange)="DatingPrefGrpChange($event)">
+              <!--div *ngIf="gender_pref ;else elseGender_pref"-->
+                  <ion-col *ngFor="let dating_Prefrences of Dating_Prefrences; let j = index" >
+                      <span>{{dating_Prefrences}}</span> <ion-checkbox [(ngModel)]="check[j]"  value={{dating_Prefrences}} color="danger"></ion-checkbox>                                    
+                  </ion-col>
+              <!--/div>
+              <!--ng-template #elseGender_pref>
+                  <ion-col *ngFor="let dating_Prefrences of Dating_Prefrences">
+                      <span>{{dating_Prefrences}}</span> <ion-radio value={{dating_Prefrences}} color="danger"></ion-radio>                                    
+                  </ion-col>        
+              </ng-template-->
+            </ion-radio-group>
+          </ion-col>
+          <ion-col size="12" class="mb-10">
+            <ion-list class="p-0">
+              <ion-label class="label-control pull-left">Age Range</ion-label>
+              <ion-label class="label-control pull-right">{{structure.lower}}-{{structure.upper}}</ion-label>
+              <div class="clear"></div>
+              <ion-item class="rangeItemField" lines="none">
+                <ion-range id="dual-range" dual-knobs pin color="danger" [(ngModel)]="structure"></ion-range>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+          <ion-col size="12" class="mb-10">
+            <ion-list class="p-0">
+              <ion-label class="label-control dInlineBlock">Show profile on app</ion-label>
+              <ion-toggle class="settingToggle" name="app" color="danger" checked  [(ngModel)]="pepperoni"></ion-toggle>
+            </ion-list>
+          </ion-col>
+          <ion-col size="12" class="mb-10">
+            <ion-card-content class="pt-10 pb-5 px-10">
+              <ion-item class="cardShapeRound borderRed" lines="none">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="4" class="">
+                      <ion-card-content class="subCardCont p-0 ">
+                        <ion-item class="cardShapeRound pStartEnd5" lines="none " (click)="goto('help')">
+                          <ion-label class="textCenter marginInline-0">
+                            <!-- <ion-icon name="eye" class="defultIcons"></ion-icon> -->
+                            <i class="far fa-question-circle defultIcons"></i>
+                            <p class="subCardContTwo">Help &<br> Support</p>
+                          </ion-label>
+                        </ion-item>
+                      </ion-card-content>
+                    </ion-col>
+                    <ion-col size="4" class="">
+                      <ion-card-content class="subCardCont p-0 " (click)="goto('guidelines')">
+                        <ion-item class="cardShapeRound pStartEnd5" lines="none">
+                          <ion-label class="textCenter marginInline-0">
+                            <ion-icon name="eye" class="defultIcons"></ion-icon>
+                            <p class="subCardContTwo">App<br> Guidelines</p>
+                          </ion-label>
+                        </ion-item>
+                      </ion-card-content>
+                    </ion-col>
+                    <ion-col size="4" class="">
+                      <ion-card-content class="subCardCont p-0 " (click)="goto('tips')">
+                        <ion-item class="cardShapeRound pStartEnd5" lines="none">
+                          <ion-label class="textCenter marginInline-0">
+                            <ion-icon name="eye" class="defultIcons"></ion-icon>
+                            <p class="subCardContTwo">Safety<br> Tips</p>
+                          </ion-label>
+                        </ion-item>
+                      </ion-card-content>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="4" class="">
+                      <ion-card-content class="subCardCont p-0 " (click)="goto('policy')">
+                        <ion-item class="cardShapeRound pStartEnd5" lines="none">
+                          <ion-label class="textCenter marginInline-0">
+                            <ion-icon name="eye" class="defultIcons"></ion-icon>
+                            <p class="subCardContTwo">Privacy<br> Policy</p>
+                          </ion-label>
+                        </ion-item>
+                      </ion-card-content>
+                    </ion-col>
+                    <ion-col size="4" class="">
+                      <ion-card-content class="subCardCont p-0 " (click)="goto('toc')">
+                        <ion-item class="cardShapeRound pStartEnd5" lines="none">
+                          <ion-label class="textCenter marginInline-0">
+                            <ion-icon name="eye" class="defultIcons"></ion-icon>
+                            <p class="subCardContTwo">Terms of<br> Service</p>
+                          </ion-label>
+                        </ion-item>
+                      </ion-card-content>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </div>
+</ion-app>
