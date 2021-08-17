@@ -1,5 +1,5 @@
 <div class="tinder" [hidden]="!cards.length">
-  <!-- <div class="tinder--status">
+  <div class="tinder--status">
     <div [style.opacity]="crossVisible? '1':'0'">
       <svg width="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
         <svg:path
@@ -14,13 +14,14 @@
           fill="#FFACE4" />
       </svg>
     </div>
-  </div> -->
+  </div>
   <div class="tinder--cards" (pan)="handlePan($event)" (panend)="handlePanEnd($event)">
     <div #tinderCard class="tinder--card" (transitionend)="handleShift()" *ngFor="let card of cards; let i = index"
       [ngStyle]="{ zIndex: cards.length - i, transform: 'scale(' + (20 - i) / 20 + ') translateY(-' + 20 * i + 'px)' }">
       <div class="cardTopOption">
         <img class="topLeftImg" src="../../assets/imgs/autoSwipe.png" alt="">
         <img class="topRightImg" src="../../assets/imgs/homeHeart.png" alt="">
+        <img class="topRightImgTwo" src="../../assets/imgs/SuperLike2.png" alt="">
       </div>
       <img class="tinderCardImg" #tinderCardImage [src]="card.img" (load)="tinderCardImage.style.opacity = 1">
       <div class="cardBottomOption">
