@@ -437,7 +437,7 @@ color: #FFF;
 }
 .radioGroupField ion-radio, .radioGroupField ion-checkbox {
   // margin: 0px 10px 10px 4px;
-  margin: 0px 0px 0px 4px;
+  margin: 0px 4px 0px 0px;
   border-color:#999;
   --border-color: #999;
 }
@@ -964,14 +964,6 @@ text-transform: capitalize;
   text-align: center;
   margin-top: -20px;
 }
-// .customMatchCard .item-native .item-inner {
-//   padding-inline-end:5px !important;
-//   padding-inline-start:5px !important;
-//   --inner-padding-start: 5px !important;
-//   --padding-start: 5px !important;
-//   --inner-padding-end: 5px !important;
-//   --padding-end: 5px !important;
-// }
 .matchQa {
   color: #ff3f40 !important;
   font-weight: 500 !important;
