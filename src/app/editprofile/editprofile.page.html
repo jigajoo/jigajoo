@@ -40,13 +40,13 @@
                   <div class="proSmall"  (click)="UploadImageFromMedia('Gallary1')">
                     <!--img class="editProSmallImg" src="./assets/imgs/pro-avtar-img.jpg" /-->
                     <ion-icon name="add" class="proAddIcon"  *ngIf="image1 === '' && image1 === 'assets/icon/img_input.svg'"></ion-icon>
-                    <img *ngIf="image1 == '' && image1 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image1')" src="{{image1}}" class="uplpadImageProfile">
+                    <img *ngIf="image1 != '' && image1 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image1')" src="{{image1}}" class="uplpadImageProfile">
                   </div>
                 </ion-col>
                 <ion-col size="6">
                   <div class="proSmall"  (click)="UploadImageFromMedia('Gallary2')">
                     <ion-icon name="add" class="proAddIcon"  *ngIf="image2 === '' && image2 === 'assets/icon/img_input.svg'"></ion-icon>
-                    <img *ngIf="image2 != '' && image2 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image2')" src="{{image1}}" class="uplpadImageProfile">
+                    <img *ngIf="image2 != '' && image2 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image2')" src="{{image2}}" class="uplpadImageProfile">
                   </div>
                 </ion-col>
               </ion-row>
@@ -56,7 +56,7 @@
                 <ion-col size="12"  (click)="UploadImageFromMedia('Gallary3')">
                   <div class="proSmall">
                     <ion-icon name="add" class="proAddIcon"  *ngIf="image3 === '' && image3 === 'assets/icon/img_input.svg'"></ion-icon>
-                    <img *ngIf="image3 != ''&& this.image3 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image3')" src="{{image1}}" class="uplpadImageProfile">
+                    <img *ngIf="image3 != ''&& this.image3 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image3')" src="{{image3}}" class="uplpadImageProfile">
                   </div>
                 </ion-col>
               </ion-row>
@@ -72,7 +72,7 @@
                 <ion-col size="12"  (click)="UploadImageFromMedia('Gallary5')">
                   <div class="proSmall">
                     <ion-icon name="add" class="proAddIcon"  *ngIf="image5 === '' && image5 === 'assets/icon/img_input.svg'"></ion-icon>
-                    <img *ngIf="image5 != '' && image5 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image2')" src="{{image5}}" class="uplpadImageProfile">                  </div>
+                    <img *ngIf="image5 != '' && image5 != 'assets/icon/img_input.svg'" (click)="UploadImageFromMedia('Gallay_Image5')" src="{{image5}}" class="uplpadImageProfile">              </div>
                 </ion-col>
               </ion-row>
             </ion-col>
@@ -132,11 +132,12 @@
             </ion-col>
             <ion-col size="12" class="mb-10">
               <ion-label class="label-control">Dating Prefrences</ion-label>
-              <ion-radio-group allow-empty-selection class="radioGroupField" [(ngModel)]="gender_pref">
+              <ion-radio-group allow-empty-selection class="radioGroupField" [(ngModel)]="Date_Pref_Grp"  (ionChange)="DatingPrefGrpChange($event)">
                 <ion-row>     
-                  <ion-col *ngFor="let person of Dating_Prefrences">
+                  <ion-col *ngFor="let person of Dating_Prefrences; let j = index">
                     <ion-label>{{person}}</ion-label>
-                    <ion-radio value="{{person}}"  checked="{{gender_pref ==  person}}" color="danger"></ion-radio>                                    
+                     <ion-checkbox [(ngModel)]="check[j]"  value={{person}} color="danger"></ion-checkbox>   
+                    <!--ion-radio value="{{person}}"  checked="{{gender_pref ==  person}}" color="danger"></ion-radio-->                                    
                 </ion-col>
                 </ion-row>
               </ion-radio-group>

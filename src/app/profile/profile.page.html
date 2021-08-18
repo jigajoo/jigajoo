@@ -47,6 +47,17 @@
              <p class="txtstyle">My<br>Education</p>
            </a>
          </div>
+
+        <!-- Model popup -->
+        <div class="ionicModal" *ngIf="alertshow">
+          <div class="modalMargin modalBody">
+            <ion-icon name="close-circle" class="colorRed modalClose" (click)="closealert()"></ion-icon>
+            <div>
+             {{message}}
+            </div>
+          </div>
+        </div>
+        <!-- / Model popup -->
        </ion-content>
      </div>
    </ion-app>

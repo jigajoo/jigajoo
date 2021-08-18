@@ -23,56 +23,65 @@ export class ProfilePage {
   Favrouit_Song: string;
   message: string;
   about: string;
-  fname: string;
-  lname: string;
-  age: any;
-  aboutinfo: string;
-  udata: any;
-  constructor(public http: HttpClient, private _gblSrc: GlobalVarService, private alertCtrl: AlertController, public router: Router, private route: ActivatedRoute) {
-    this.route.queryParams.subscribe(async params => {
-      if (params && params.id) {
-        this.userID = JSON.parse(params.id);
-        await this.getuserdata(this.userID);
-
-        console.log(this.userID);
-        let Data = new FormData();
-        var URL = 'http://jigaju.esy.es/api/viewCount';
-        Data.append('userid', this.userID);
-        let resData: Observable<any>;
-        resData = this.http.post(URL, Data);
-        resData.subscribe(data => {
-          console.log(data);
-        });
+  fname:string;
+  lname:string;
+  age:any;
+  alertshow= false;
+  aboutinfo:string;
+  udata:any;
+    constructor(public http:HttpClient,private _gblSrc: GlobalVarService,private alertCtrl: AlertController,public router:Router,private route: ActivatedRoute) {
+      this.route.queryParams.subscribe(async params => {
+            if (params && params.id) {
+              this.userID = JSON.parse(params.id);
+              await this.getuserdata(this.userID);
+              
+              console.log(this.userID);
+              let Data= new FormData();          
+              var URL='http://jigaju.esy.es/api/viewCount';
+              Data.append('userid',this.userID);
+              let resData : Observable<any>;        
+                  resData = this.http.post(URL,Data);
+                  resData.subscribe(data => {
+                    console.log(data);       
+                  }); 
+            }
+          });
+          //this.userID=navParams.get('id');
+          
       }
     });
     //this.userID=navParams.get('id');
 
   }
 
-  getuserdata(uid) {
-    //this.UserDetail=val.id;            
-    let postData = new FormData();
-    var API_URL = 'http://jigaju.esy.es/api/getuserdetails';
-    postData.append('userid', this.userID);
-    let responseData: Observable<any>;
-    responseData = this.http.post(API_URL, postData);
-    responseData.subscribe(data => {
-      console.log(data);
-      if (!data.error) {
-        var items = data.body[0];
-        this.udata = data.body[0];
-        //this._gblSrc.currectUserAllDetails=items;
-        this.img_profile = 'http://jigaju.esy.es/uploads/thumbnail/' + this.udata.profile_image;
-        this.img_profile = 'http://jigaju.esy.es/uploads/thumbnail/' + this.udata.profile_image;
-        console.log(this.img_profile);
-        this.profession = this.udata.profession;
-        this.education = this.udata.education;
-        this.address = this.udata.address;
-        this.Hobbies = this.udata.Hobbies;
-        this.Hidden_Secret = this.udata.Hidden_Secret;
-        this.Favrouit_Movie = this.udata.Favrouit_Movie;
-        this.Favrouit_Song = this.udata.Favrouit_Song;
-        this.about = this.udata.about;
+      closealert(){
+        this.alertshow = false;
+      }
+
+      getuserdata(uid){
+        //this.UserDetail=val.id;            
+                    let postData= new FormData();
+                    var API_URL='http://jigaju.esy.es/api/getuserdetails';
+                    postData.append('userid', this.userID);
+                    let responseData : Observable<any>;
+                        responseData = this.http.post(API_URL,postData);
+                        responseData.subscribe(data => {
+                            console.log(data);
+                            if(!data.error){                      
+                              var items=data.body[0];
+                              this.udata = data.body[0]; 
+                              //this._gblSrc.currectUserAllDetails=items;
+                              this.img_profile='http://jigaju.esy.es/uploads/thumbnail/'+this.udata.profile_image;
+                              this.img_profile='http://jigaju.esy.es/uploads/thumbnail/'+this.udata.profile_image;
+                              console.log(this.img_profile);
+                              this.profession = this.udata.profession;
+                              this.education = this.udata.education;
+                              this.address = this.udata.address;
+                              this.Hobbies = this.udata.Hobbies;
+                              this.Hidden_Secret = this.udata.Hidden_Secret;
+                              this.Favrouit_Movie = this.udata.Favrouit_Movie;
+                              this.Favrouit_Song = this.udata.Favrouit_Song;
+                              this.about = this.udata.about;
 
 
       }
@@ -156,15 +165,30 @@ export class ProfilePage {
             console.log('Ok');
           }
         }
-      ],
-      cssClass: 'alertCustomCss'
-    });
-
-    await alert.present();
-  }
-
-  goBack() {
-    //this.navctl.pop();
-    this.router.navigate(['/']);
+        this.alertshow = true;
+        /*let alert = await this.alertCtrl.create({
+           header: val,
+           message: this.message,
+          
+           buttons: [
+           
+             {
+               text: 'Ok',
+               handler: () => {
+                 console.log('Ok');
+                 }
+               }
+            ],
+            cssClass: 'alertCustomCss'
+           });
+       
+           await alert.present();*/
+      }
+  
+         goBack()
+         {
+           //this.navctl.pop();
+           this.router.navigate(['/']);
+         }
   }
 }

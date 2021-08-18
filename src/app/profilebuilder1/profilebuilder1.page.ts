@@ -278,17 +278,54 @@ export class Profilebuilder1Page implements OnInit {
   }
 
 
+  validateForm(data)
+   {  
+      var val ={error:false,message:''};
+      if(!data.name ){
+        val = {error:true,message:'Please provide Name'};
+      }
+      else if(!data.dob){
+        val = {error:true,message:'Please provide Date of birth'};
+      }else if(data.dob){
+        let userDob= data.dob.split('T')[0];
+        let isEligible = this.isEligibleAge(userDob);
+        if(!isEligible){
+          val = {error:true,message:'Eligible for 18+ only'};
+        }
+      }
+      return val;
+   }
 
-  onSubmit() {
+
+  async onSubmit() {
     let data = {
       "image": this.Profile_image,
       "name": this.profilrbuilderForm.value.avatarName,
       "location": this.profilrbuilderForm.value.avatarLocation,
       "dob": this.profilrbuilderForm.value.avatarDOB,
     }
-
     console.log("data", data);
-    this.createUser();
+    let val = this.validateForm(data);
+    if(!val.error){
+      this.createUser();
+    } else{
+      const toast = await this.toast.create({
+        message: val.message,
+        duration: 2000
+      });
+      toast.present();
+    }
+  }
+
+  isEligibleAge(birthday) { // birthday is a date
+    var split_dob = birthday.split("-");
+    var year = split_dob[0];
+    var month = split_dob[1];
+    var day = split_dob[2];
+    var dob_asdate = new Date(year, month, day);
+    let ageDifMs = Date.now() - dob_asdate.getTime();
+    var age = Math.floor(ageDifMs / (1000 * 3600 * 24 * 365.25));
+    return age>=18;
   }
 
   cropImage(fileUrl) {
