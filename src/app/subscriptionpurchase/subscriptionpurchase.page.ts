@@ -98,6 +98,20 @@ export class SubscriptionpurchasePage implements OnInit {
 
   registerProducts(data) {
     console.log("99",data);
+    var pi =[];
+    for(let i=0; i< data.length; i++){
+      const ids = data[i].Product_ID.split(',');
+      console.log(ids);
+      pi = pi.concat(ids);
+      console.log(pi);
+
+    }
+    for(let j=0; j< pi.length; j++){
+        this.store.register({
+          id: pi[j],
+          type: this.store.PAID_SUBSCRIPTION//this.store.NON_RENEWING_SUBSCRIPTION,
+        });
+    }
     this.store.register({
       id: this.sid,
       type: this.store.PAID_SUBSCRIPTION//this.store.NON_RENEWING_SUBSCRIPTION,
@@ -132,7 +146,7 @@ export class SubscriptionpurchasePage implements OnInit {
         })
         .verified((p: IAPProduct) => p.finish());
       // Specific query for one ID
-     // this.store.when(PRODUCT_PRO_KEY).owned((p: IAPProduct) => {
+      // this.store.when(PRODUCT_PRO_KEY).owned((p: IAPProduct) => {
        // this.isPro = true;
       //});
     }

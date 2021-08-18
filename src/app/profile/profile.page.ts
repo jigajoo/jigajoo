@@ -26,6 +26,7 @@ export class ProfilePage {
   fname:string;
   lname:string;
   age:any;
+  alertshow= false;
   aboutinfo:string;
   udata:any;
     constructor(public http:HttpClient,private _gblSrc: GlobalVarService,private alertCtrl: AlertController,public router:Router,private route: ActivatedRoute) {
@@ -47,6 +48,10 @@ export class ProfilePage {
           });
           //this.userID=navParams.get('id');
           
+      }
+
+      closealert(){
+        this.alertshow = false;
       }
 
       getuserdata(uid){
@@ -145,7 +150,8 @@ export class ProfilePage {
             break;
          }
         }
-        let alert = await this.alertCtrl.create({
+        this.alertshow = true;
+        /*let alert = await this.alertCtrl.create({
            header: val,
            message: this.message,
           
@@ -161,7 +167,7 @@ export class ProfilePage {
             cssClass: 'alertCustomCss'
            });
        
-           await alert.present();
+           await alert.present();*/
       }
   
          goBack()

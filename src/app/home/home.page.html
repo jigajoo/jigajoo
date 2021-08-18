@@ -73,7 +73,8 @@
         <ion-title text-center>Find Match </ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content fullscreen class="ion-padding"> 
+    <app-jigazoocard [cards]="cards" (choiceMade)="logChoice($event)" class="fullh"></app-jigazoocard>
+    <!--ion-content fullscreen class="ion-padding"> 
         <!--div *ngIf="rightSwipeBlock">
             <ion-item  class="rightSwipBlock">
                 <ion-icon name="close-circle" style="position:fixed; top:5px; left:90%;font-size: 35px;color: #fe2829;" (click)="CloseRightSwipPopup()"></ion-icon>
@@ -174,7 +175,7 @@
               </div>
             </ion-col>
             </ion-row>
-        </div-->
+        </div>
         
     </ion-content>
     <!--ion-footer class="ion-no-border ion-no-padding" style="margin-top: -1px;">

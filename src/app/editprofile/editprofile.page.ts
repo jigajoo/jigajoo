@@ -74,6 +74,7 @@ export class EditprofilePage implements OnInit {
   image4:any = '';
   image5:any = '';
   logitude:string;
+  check = [false,false,false];
 
   //------------------------------------------------------------
 
@@ -139,6 +140,16 @@ export class EditprofilePage implements OnInit {
                  this.profession =this.userProfileInfo.profession;
                  this.latitube=this.userProfileInfo.location_lat;
                  this.logitude=this.userProfileInfo.location_long;
+                 var splitted = this.gender_pref.split(","); 
+                 //  console.log(splitted)
+                 for(let j=0;j<splitted.length ;j++){
+                   for(let i=0;i<this.Dating_Prefrences.length ;i++){
+                     //console.log(this.check[i]);
+                     if(this.Dating_Prefrences[i] === splitted[j]){
+                        this.check[i] = true;
+                     }
+                   }
+                 }
                this.gallary=data.gallary;
                if(this.userProfileInfo.profile_image)
                {
@@ -197,8 +208,28 @@ export class EditprofilePage implements OnInit {
        });
    }
 
+
+    DatingPrefGrpChange(event){
+      //console.log(event);
+      console.log(this.check);
+      this.gender_pref='';
+      for(let i=0;i<this.check.length ;i++){
+        //console.log(this.check[i]);
+        if(this.check[i] === true){
+          // console.log(this.check[i]);
+            if(this.gender_pref === '')
+              this.gender_pref=this.Dating_Prefrences[i];
+            else
+              this.gender_pref= this.gender_pref + ',' +this.Dating_Prefrences[i];
+        }
+      }
+      console.log(this.gender_pref);
+      //this.gender_pref=event;
+   }
+
   async saveProfile()
   {
+    console.log("this.validateInput()",this.validateInput());
     if(!this.validateInput()) // Exit function if Validation fails
       return;
     let alert = await this.toast.create({
@@ -404,6 +435,7 @@ export class EditprofilePage implements OnInit {
                  case 'Gallary1': { 
                      this.Gallay_Image1 =  ImageData; 
                      this.image1=(<any>window).Ionic.WebView.convertFileSrc('file://'+ImageData);
+                     console.log("this.image1",this.image1);
                      return ImageData;//Crop.crop(ImageData, { quality: 100, targetWidth: -1, targetHeight: -1 });   
                  }
                  case 'Gallary2': { 
