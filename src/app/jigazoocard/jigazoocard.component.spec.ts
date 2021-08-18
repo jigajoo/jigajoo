@@ -9,7 +9,7 @@ describe('JigazoocardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ JigazoocardComponent ],
+      declarations: [JigazoocardComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

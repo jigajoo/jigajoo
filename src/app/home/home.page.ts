@@ -80,44 +80,44 @@ export class HomePage {
   mainMatchProfiles = [];
   udata: any = '';
   deviceToken = '';
-  profileEmail:string;
+  profileEmail: string;
 
   cards = [
-        {
-          img: "https://placeimg.com/300/300/people",
-          title: "Demo card 1",
-          description: "This is a demo for Tinder like swipe cards"
-        },
-        {
-          img: "https://placeimg.com/300/300/animals",
-          title: "Demo card 2",
-          description: "This is a demo for Tinder like swipe cards"
-        },
-        {
-          img: "https://placeimg.com/300/300/nature",
-          title: "Demo card 3",
-          description: "This is a demo for Tinder like swipe cards"
-        },
-        {
-          img: "https://placeimg.com/300/300/tech",
-          title: "Demo card 4",
-          description: "This is a demo for Tinder like swipe cards"
-        },
-        {
-          img: "https://placeimg.com/300/300/arch",
-          title: "Demo card 5",
-          description: "This is a demo for Tinder like swipe cards"
-        }
-      ]
+    {
+      img: "https://placeimg.com/300/300/people",
+      title: "Demo card 1",
+      description: "This is a demo for Tinder like swipe cards"
+    },
+    {
+      img: "https://placeimg.com/300/300/animals",
+      title: "Demo card 2",
+      description: "This is a demo for Tinder like swipe cards"
+    },
+    {
+      img: "https://placeimg.com/300/300/nature",
+      title: "Demo card 3",
+      description: "This is a demo for Tinder like swipe cards"
+    },
+    {
+      img: "https://placeimg.com/300/300/tech",
+      title: "Demo card 4",
+      description: "This is a demo for Tinder like swipe cards"
+    },
+    {
+      img: "https://placeimg.com/300/300/arch",
+      title: "Demo card 5",
+      description: "This is a demo for Tinder like swipe cards"
+    }
+  ]
 
   constructor(private auth: AuthService, private route: ActivatedRoute, private router: Router,
-    public http: HttpClient,private menu: MenuController,private alertCtrl: AlertController,
+    public http: HttpClient, private menu: MenuController, private alertCtrl: AlertController,
     private store: InAppPurchase2,
     private storage: Storage, private apiservice: ApiService,
     private _authSrc: AuthService,
-    public events:Events,
+    public events: Events,
     private _gblSrc: GlobalVarService, private zone: NgZone) {
-      this.count = 1;
+    this.count = 1;
     this.pointreward = false;
     this.newUser = _gblSrc.newUser;
     console.log(this.newUser);
@@ -129,8 +129,8 @@ export class HomePage {
         this.getUserInfo(this.userID);
       });
     }
-    this.storage.get('token').then(token=>{
-      this.deviceToken=token;
+    this.storage.get('token').then(token => {
+      this.deviceToken = token;
     });
 
     /*this.events.subscribe('ProfileImageChange', () => {
@@ -224,7 +224,7 @@ export class HomePage {
       if (!data.error) {
         var items = data.body[0];
         this.udata = data.body[0];
-        this.profileEmail=data.body[0].email;
+        this.profileEmail = data.body[0].email;
         //this.profileInfo=this.items.fname;
         //this.profileEmail=this.items.email;
         //this.img_profile = 'http://jigaju.esy.es/uploads/thumbnail/'+this.items.profile_image;
@@ -695,54 +695,54 @@ export class HomePage {
 
   }
   messageRecived() {
-     this.events.publish('is_read');
+    this.events.publish('is_read');
   }
 
   async Logout() {
     this.presentConfirm();
-    
+
   }
 
   async presentConfirm() {
-     let alert =await this.alertCtrl.create({
-        //title: 'Confirm Logout',
-        message: 'Do you want to Logout ?',
-        cssClass: 'alertCustomCss',
-        buttons: [
-          {
-            text: 'NO',
-            role: 'cancel',
-            handler: () => {
-              console.log('NO');
-            }
-          },
-          {
-            text: 'YES',
-            handler:async () => {
-                  //console.log('YES'); 
-                  let postData= new FormData();
-                  var API_URL='http://jigaju.esy.es/api/logout_APP';
-                  postData.append('id',this.userID);
-                  if(this.deviceToken)
-                    postData.append('device_token',this.deviceToken); 
-                  else
-                    postData.append('device_token',this.profileEmail+'_Browser');
-                  
-                  let responseData : Observable<any>;
-                  responseData = this.http.post(API_URL,postData);
-                  responseData.subscribe(async data => {
-                    //this.userProvider.logout();
-                    console.log(data);    
-                    await this.auth.logout();
-                    
-                  });
-                this.storage.remove('name');
-               // this.platform.exitApp();
-                this.router.navigate(["splash"]);       
-               }
+    let alert = await this.alertCtrl.create({
+      //title: 'Confirm Logout',
+      message: 'Do you want to Logout?',
+      cssClass: 'alertCustomCss',
+      buttons: [
+        {
+          text: 'NO',
+          role: 'cancel',
+          handler: () => {
+            console.log('NO');
           }
-         ]
-        });
+        },
+        {
+          text: 'YES',
+          handler: async () => {
+            //console.log('YES'); 
+            let postData = new FormData();
+            var API_URL = 'http://jigaju.esy.es/api/logout_APP';
+            postData.append('id', this.userID);
+            if (this.deviceToken)
+              postData.append('device_token', this.deviceToken);
+            else
+              postData.append('device_token', this.profileEmail + '_Browser');
+
+            let responseData: Observable<any>;
+            responseData = this.http.post(API_URL, postData);
+            responseData.subscribe(async data => {
+              //this.userProvider.logout();
+              console.log(data);
+              await this.auth.logout();
+
+            });
+            this.storage.remove('name');
+            // this.platform.exitApp();
+            this.router.navigate(["splash"]);
+          }
+        }
+      ]
+    });
     await alert.present();
   }
 
@@ -752,15 +752,15 @@ export class HomePage {
         userID: JSON.stringify(this.userID)
       }
     };
-    if(!this.userID) {
+    if (!this.userID) {
       this.router.navigate(['splash']);
     }
     if (link === 'mappoint') {
       this.router.navigate(["mappoint"], navigationExtras);
     } else if (link === 'match') {
-     // this.router.navigate(["match"], navigationExtras);
-     // this.router.navigate(["sidemenu"]);
-     this.menu.close();
+      // this.router.navigate(["match"], navigationExtras);
+      // this.router.navigate(["sidemenu"]);
+      this.menu.close();
     } else if (link === 'chat') {
       this.router.navigate(["chat"], navigationExtras);
     } else if (link === 'subscription') {

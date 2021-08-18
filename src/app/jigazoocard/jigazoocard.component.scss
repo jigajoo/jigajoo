@@ -76,16 +76,16 @@
   cursor: grabbing;
 }
 
-// .tinder--status > div {
-//   transition: all 0.3s ease-in-out;
-// }
+.tinder--status > div {
+  transition: all 0.3s ease-in-out;
+}
 
-// .tinder--status svg {
-//   transition: all 0.3s ease-in-out;
-//   position: absolute;
-//   width: 100px;
-//   margin-left: -50px;
-// }
+.tinder--status svg {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+}
 .tinderCardImg {
   pointer-events: none;
   opacity: 0;
@@ -111,6 +111,11 @@
   margin: 10px 0px 15px 10px;
 }
 .cardTopOption .topRightImg {
+  float: right;
+  width: 25px;
+  margin: 10px 10px 15px 0px;
+}
+.cardTopOption .topRightImgTwo {
   float: right;
   width: 25px;
   margin: 10px 10px 15px 0px;
