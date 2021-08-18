@@ -21,9 +21,9 @@
               <ion-row>
                 <ion-col *ngFor="let opt of radioOpt; let j = index">
                   <div *ngIf="radioOpt[i][j] !=  null" class="fx">
-                    <ion-label>{{radioOpt[i][j]}}</ion-label> 
                     <ion-radio color="danger" (ionFocus)="getValue(radioOpt[i][j],data.columns_name)"
-                      [ngModel]="radioOpt[i][j]"></ion-radio>                  
+                      [ngModel]="radioOpt[i][j]"></ion-radio> 
+                      <ion-label>{{radioOpt[i][j]}}</ion-label>                 
                   </div>
                 </ion-col>
               </ion-row>
@@ -34,9 +34,9 @@
               <ion-row>
                 <ion-col size="6" *ngFor="let opt of radioOpt; let j = index">
                   <div *ngIf="radioOpt[i][j] !=  null" class="fx">
-                    <ion-label>{{radioOpt[i][j]}}</ion-label> 
                     <ion-radio color="danger" (ionFocus)="getValue(radioOpt[i][j],data.columns_name)"
-                      [ngModel]="radioOpt[i][j]"></ion-radio>                  
+                      [ngModel]="radioOpt[i][j]"></ion-radio>  
+                      <ion-label>{{radioOpt[i][j]}}</ion-label>                
                   </div>
                 </ion-col>
               </ion-row>
@@ -72,8 +72,8 @@
               <ion-row>
                 <ion-col *ngFor="let opt of checkOpt; let j = index">
                   <div *ngIf="checkOpt[i][j] !=  null" class="fx">
-                    <ion-label>{{checkOpt[i][j]}}</ion-label>
                     <ion-checkbox color="danger" [(ngModel)]="check[i][j]"></ion-checkbox>
+                    <ion-label>{{checkOpt[i][j]}}</ion-label>
                   </div>
                 </ion-col>
               </ion-row>

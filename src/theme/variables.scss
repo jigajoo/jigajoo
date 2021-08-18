@@ -254,7 +254,7 @@ ion-card-content.subCardCont {
 }
 /*Modal*/
 .ionicModal {
-  // width: 100%;
+  width: 100%;
   background: -webkit-linear-gradient(-55deg, #4b1616 50%, rgb(155, 71, 71) 100%) !important;
   box-shadow: .4rem .4rem 2.4rem .2rem hsla(235, 42%, 42%, 0.3);
   border-radius: 10px;
@@ -286,23 +286,6 @@ ion-card-content.subCardCont {
 }
 .matchcheckInnerPadding {
   padding: 0px 0px 5px 0px;
-}
-.alertCustomCss .alert-wrapper.sc-ion-alert-md {
-  width: 100%;
-  background: -webkit-linear-gradient(-55deg, #4b1616 50%, rgb(155, 71, 71) 100%) !important;
-  box-shadow: .4rem .4rem 2.4rem .2rem hsla(235, 42%, 42%, 0.3);
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  outline: 0;
-}
-.alertCustomCss .alert-button.sc-ion-alert-md {
-  background-color: #eb445a;
-  color: #FFF;
-  border-radius: 50px;
-  padding: 7px 28px;
-}
-.alertCustomCss .alert-message.sc-ion-alert-md {
-color: #FFF;
 }
 .featureBoost {
   text-align: center;
@@ -974,12 +957,11 @@ text-transform: capitalize;
 // }
 .matchQa {
   color: #ff3f40 !important;
-  font-weight: 500 !important;
+  font-weight: bold !important;
   margin-bottom: 6px !important;
   font-size: 14px !important;
   line-height: 15px !important;
 }
-
 .matchAns {
   color: #bababa !important;
   margin-left: 2px;
