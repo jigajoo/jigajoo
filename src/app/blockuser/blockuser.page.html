@@ -10,22 +10,24 @@
     </ion-header>
     <ion-content class="ion-no-padding">
       <ng-template #NO_OR_FINISH_MATCH>
-               NO Block User
+        <ion-card-content class="pt-10 pb-5 px-10">
+          <ion-item class="cardShapeRound" lines="none">No Block User</ion-item>
+        </ion-card-content>
       </ng-template>
-      <div    *ngIf="content; else NO_OR_FINISH_MATCH">
+      <div *ngIf="content; else NO_OR_FINISH_MATCH">
         <ion-card-content class="pt-10 pb-5 px-10" *ngFor="let data of content; let i = index">
           <ion-item class="cardShapeRound" lines="none">
             <ion-avatar slot="start" (click)="profile(data)">
               <img class="Proimg" src='http://jigaju.esy.es/uploads/thumbnail/{{data.profile_image}}' />
             </ion-avatar>
-            <ion-label >
+            <ion-label>
               <h3 class="colorRed">{{data.fname}} <span class="mcoCounter">{{data.gender}}</span></h3>
               <h3>{{data.about}}</h3>
             </ion-label>
           </ion-item>
         </ion-card-content>
       </div>
-      
+
       <!--ion-card-content class="pt-10 pb-5 px-10">
         <ion-item class="cardShapeRound" lines="none">
           <ion-avatar slot="start">

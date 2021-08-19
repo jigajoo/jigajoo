@@ -225,6 +225,11 @@ body {
   padding: 0px;
   --ion-background-color: #272727;
 }
+.maxWidth {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+}
 ion-header, ion-toolbar {
   --ion-background-color: #272727;
   --ion-text-color: #ff3f40;
@@ -1025,6 +1030,17 @@ text-transform: capitalize;
 .uploadOptIcon {
   font-size: 45px;
   margin-top: 20px;
+}
+.profilePopup h2.popupTitle {
+  font-size: 25px;
+}
+.profilePopup h2 {
+  font-size: 22px;
+  margin: 10px 0px;
+}
+.profilePopup ion-icon {
+  font-size: 60px;
+  color: #ff3f40;
 }
 
 @-webkit-keyframes mover {
