@@ -1,0 +1,72 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start" (click)="return()">
+          <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Match check outs</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-no-padding">
+      <div id="x" *ngIf="hide">
+        <div *ngFor="let data of content">
+          <ion-card-content class="pt-10 pb-5 px-10" (click)="matchcheckout(data.id)">
+            <ion-item class="cardShapeRound" lines="none">
+              <ion-avatar slot="start">
+                <img class="Proimg" src="http://jigaju.esy.es/uploads/thumbnail/{{data.profile_image}}" />
+              </ion-avatar>
+              <ion-label>
+                <h3 class="colorRed">{{data.fname}}<span class="mcoCounter">{{data.age}}</span></h3>
+                <h3>{{data.about}}</h3>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </div>
+      </div>
+
+      <!-- Model popup -->
+      <div id="element" *ngIf="info" class="ionicModal">
+        <div class="modalMargin modalBody">
+          <ion-icon name="close-circle" class="colorRed modalClose" (click)="back()"></ion-icon>
+          <div *ngFor="let data of matchcheck">
+            <ion-card-content class="matchcheckInnerPadding">
+              <ion-item class="cardShapeRound" lines="none">
+                <ion-avatar slot="start">
+                  <img class="Proimg" src="http://jigaju.esy.es/uploads/thumbnail/{{data.profile_image}}" />
+                </ion-avatar>
+                <ion-label>
+                  <h3 class="colorRed">{{data.fname}}<span class="mcoCounter">{{data.age}}</span></h3>
+                  <h3>{{data.about}}</h3>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </div>
+        </div>
+      </div>
+      <!-- / Model popup -->
+
+      <div id="element" *ngIf="info"
+        style="display: none; z-index: 99;position: fixed ;top:11%;background: black;width:100% ;">
+        <div style="z-index: 999;margin-top: -15px;margin-left: 85%; position: fixed">
+          <ion-icon name="close-circle" style="font-size: 26px;color: #fe2829;" (click)="back()"></ion-icon>
+        </div>
+
+        <div *ngFor="let data of matchcheck">
+          <ion-card-content class="pt-10 pb-5 px-10">
+            <ion-item class="cardShapeRound" lines="none">
+              <ion-avatar slot="start">
+                <img class="Proimg" src="http://jigaju.esy.es/uploads/thumbnail/{{data.profile_image}}" />
+              </ion-avatar>
+              <ion-label>
+                <h3 class="colorRed">{{data.fname}}<span class="mcoCounter">{{data.age}}</span></h3>
+                <h3>{{data.about}}</h3>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </div>
+      </div>
+
+    </ion-content>
+  </div>
+</ion-app>

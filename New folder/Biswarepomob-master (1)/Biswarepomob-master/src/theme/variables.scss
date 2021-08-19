@@ -1,0 +1,1133 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+/** Ionic CSS Variables **/
+:root {
+  /** primary **/
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --ion-color-secondary: #3dc2ff;
+  --ion-color-secondary-rgb: 61, 194, 255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #36abe0;
+  --ion-color-secondary-tint: #50c8ff;
+
+  /** tertiary **/
+  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary-rgb: 82, 96, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-tint: #6370ff;
+
+  /** success **/
+  --ion-color-success: #2dd36f;
+  --ion-color-success-rgb: 45, 211, 111;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #28ba62;
+  --ion-color-success-tint: #42d77d;
+
+  /** warning **/
+  --ion-color-warning: #ffc409;
+  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0ac08;
+  --ion-color-warning-tint: #ffca22;
+
+  /** danger **/
+  --ion-color-danger: #ff3f40;
+  --ion-color-danger-rgb: 235, 68, 90;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cf3c4f;
+  --ion-color-danger-tint: #ed576b;
+
+  /** dark **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 36, 40;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  /** light **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+  /** custom **/
+}
+@media (prefers-color-scheme: dark) {
+  /*
+   * Dark Colors
+   * -------------------------------------------
+   */
+
+  body {
+    --ion-color-primary: #428cff;
+    --ion-color-primary-rgb: 66, 140, 255;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #3a7be0;
+    --ion-color-primary-tint: #5598ff;
+    --ion-color-secondary: #50c8ff;
+    --ion-color-secondary-rgb: 80, 200, 255;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
+    --ion-color-secondary-shade: #46b0e0;
+    --ion-color-secondary-tint: #62ceff;
+    --ion-color-tertiary: #6a64ff;
+    --ion-color-tertiary-rgb: 106, 100, 255;
+    --ion-color-tertiary-contrast: #ffffff;
+    --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+    --ion-color-tertiary-shade: #5d58e0;
+    --ion-color-tertiary-tint: #7974ff;
+    --ion-color-success: #2fdf75;
+    --ion-color-success-rgb: 47, 223, 117;
+    --ion-color-success-contrast: #000000;
+    --ion-color-success-contrast-rgb: 0, 0, 0;
+    --ion-color-success-shade: #29c467;
+    --ion-color-success-tint: #44e283;
+    --ion-color-warning: #ffd534;
+    --ion-color-warning-rgb: 255, 213, 52;
+    --ion-color-warning-contrast: #000000;
+    --ion-color-warning-contrast-rgb: 0, 0, 0;
+    --ion-color-warning-shade: #e0bb2e;
+    --ion-color-warning-tint: #ffd948;
+    --ion-color-danger: #ff3f40;
+    --ion-color-danger-rgb: 255, 73, 97;
+    --ion-color-danger-contrast: #ffffff;
+    --ion-color-danger-contrast-rgb: 255, 255, 255;
+    --ion-color-danger-shade: #e04055;
+    --ion-color-danger-tint: #ff5b71;
+    --ion-color-dark: #f4f5f8;
+    --ion-color-dark-rgb: 244, 245, 248;
+    --ion-color-dark-contrast: #000000;
+    --ion-color-dark-contrast-rgb: 0, 0, 0;
+    --ion-color-dark-shade: #d7d8da;
+    --ion-color-dark-tint: #f5f6f9;
+    --ion-color-medium: #989aa2;
+    --ion-color-medium-rgb: 152, 154, 162;
+    --ion-color-medium-contrast: #000000;
+    --ion-color-medium-contrast-rgb: 0, 0, 0;
+    --ion-color-medium-shade: #86888f;
+    --ion-color-medium-tint: #a2a4ab;
+    --ion-color-light: #222428;
+    --ion-color-light-rgb: 34, 36, 40;
+    --ion-color-light-contrast: #ffffff;
+    --ion-color-light-contrast-rgb: 255, 255, 255;
+    --ion-color-light-shade: #1e2023;
+    --ion-color-light-tint: #383a3e;
+  }
+
+  /*
+   * iOS Dark Theme
+   * -------------------------------------------
+   */
+
+  .ios body {
+    --ion-background-color: #000000;
+    --ion-background-color-rgb: 0, 0, 0;
+    --ion-text-color: #ffffff;
+    --ion-text-color-rgb: 255, 255, 255;
+    --ion-color-step-50: #0d0d0d;
+    --ion-color-step-100: #1a1a1a;
+    --ion-color-step-150: #262626;
+    --ion-color-step-200: #333333;
+    --ion-color-step-250: #404040;
+    --ion-color-step-300: #4d4d4d;
+    --ion-color-step-350: #595959;
+    --ion-color-step-400: #666666;
+    --ion-color-step-450: #737373;
+    --ion-color-step-500: #808080;
+    --ion-color-step-550: #8c8c8c;
+    --ion-color-step-600: #999999;
+    --ion-color-step-650: #a6a6a6;
+    --ion-color-step-700: #b3b3b3;
+    --ion-color-step-750: #bfbfbf;
+    --ion-color-step-800: #cccccc;
+    --ion-color-step-850: #d9d9d9;
+    --ion-color-step-900: #e6e6e6;
+    --ion-color-step-950: #f2f2f2;
+    --ion-item-background: #000000;
+    --ion-card-background: #1c1c1d;
+  }
+  .ios ion-modal {
+    --ion-background-color: var(--ion-color-step-100);
+    --ion-toolbar-background: var(--ion-color-step-150);
+    --ion-toolbar-border-color: var(--ion-color-step-250);
+  }
+
+  /*
+   * Material Design Dark Theme
+   * -------------------------------------------
+   */
+
+  .md body {
+    --ion-background-color: #121212;
+    --ion-background-color-rgb: 18, 18, 18;
+    --ion-text-color: #ffffff;
+    --ion-text-color-rgb: 255, 255, 255;
+    --ion-border-color: #222222;
+    --ion-color-step-50: #1e1e1e;
+    --ion-color-step-100: #2a2a2a;
+    --ion-color-step-150: #363636;
+    --ion-color-step-200: #414141;
+    --ion-color-step-250: #4d4d4d;
+    --ion-color-step-300: #595959;
+    --ion-color-step-350: #656565;
+    --ion-color-step-400: #717171;
+    --ion-color-step-450: #7d7d7d;
+    --ion-color-step-500: #898989;
+    --ion-color-step-550: #949494;
+    --ion-color-step-600: #a0a0a0;
+    --ion-color-step-650: #acacac;
+    --ion-color-step-700: #b8b8b8;
+    --ion-color-step-750: #c4c4c4;
+    --ion-color-step-800: #d0d0d0;
+    --ion-color-step-850: #dbdbdb;
+    --ion-color-step-900: #e7e7e7;
+    --ion-color-step-950: #f3f3f3;
+    --ion-item-background: #1e1e1e;
+    --ion-toolbar-background: #1f1f1f;
+    --ion-tab-bar-background: #1f1f1f;
+    --ion-card-background: #1e1e1e;
+  }
+}
+
+/*============== Start Custom Css by Santanu ==============*/
+/*===== Fonts  Library =====*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+* {
+  font-family: "Roboto", Helvetica Neue, sans-serif;
+  font-weight: 400;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  --ion-background-color: #272727;
+}
+ion-header, ion-toolbar {
+  --ion-background-color: #272727;
+  --ion-text-color: #ff3f40;
+  --background: #272727;
+  --color: #ff3f40;
+  --border-color:#272727;
+  // --border-color:#c1c4cd;
+}
+ion-content {
+  --ion-background-color: #272727;
+  --ion-text-color: #fff;
+}
+ion-card-content {
+  --ion-background-color: #3d3d3d;
+}
+ion-card-content.subCardCont {
+  --ion-background-color: #000;
+}
+.activePackage {
+  background: -webkit-linear-gradient(-55deg, #4b1616 50%, rgb(155, 71, 71) 100%) !important;
+  --ion-background-color: -webkit-linear-gradient(-55deg, #4b1616 50%, rgb(155, 71, 71) 100%) !important;
+  color: #FFF;
+  border: 1px solid #ff3f40 !important;
+}
+.activePackage p {
+  color: #FFF;
+}
+/*Modal*/
+.ionicModal {
+  // width: 100%;
+  background: -webkit-linear-gradient(-55deg, #4b1616 50%, rgb(155, 71, 71) 100%) !important;
+  box-shadow: .4rem .4rem 2.4rem .2rem hsla(235, 42%, 42%, 0.3);
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  position: fixed;
+  top: 5rem;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1050;
+  // overflow: hidden;
+  outline: 0;
+  width: 300px;
+}
+.modalBody {
+  max-height: 260px;
+  overflow-y: auto;
+}
+.modalMargin {
+  margin: 15px 5px 10px 5px;
+}
+.modalClose {
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  z-index: 10;
+  font-size: 26px;
+}
+.matchcheckInnerPadding {
+  padding: 0px 0px 5px 0px;
+}
+.alertCustomCss .alert-wrapper.sc-ion-alert-md {
+  width: 100%;
+  background: -webkit-linear-gradient(-55deg, #4b1616 50%, rgb(155, 71, 71) 100%) !important;
+  box-shadow: .4rem .4rem 2.4rem .2rem hsla(235, 42%, 42%, 0.3);
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: 0;
+}
+.alertCustomCss .alert-button.sc-ion-alert-md {
+  background-color: #eb445a;
+  color: #FFF;
+  border-radius: 50px;
+  padding: 7px 28px;
+}
+.alertCustomCss .alert-message.sc-ion-alert-md {
+color: #FFF;
+}
+.featureBoost {
+  text-align: center;
+  padding: 20px 0px 10px 0px;
+}
+.featureBoost .cardShapeRound {
+  border: 1px solid #ccc;
+}
+.featureBoost .cardShapeRound p {
+  color: #aaa;
+}
+.boostActive {
+  border: 1px solid #ff3f40 !important;
+}
+.boostActive p {
+  color: #FFF !important;
+}
+.featureBoost .cardShapeRound {
+  padding-inline-end:0px !important;
+  padding-inline-start:0px !important;
+  --inner-padding-start: 0px !important;
+  --padding-start: 0px !important;
+  --inner-padding-end: 0px !important;
+  --padding-end: 0px !important;
+}
+.subText {
+  font-size: 10px;
+}
+.subCardContTwo {
+  font-size: 10px !important;
+  color: #FFF !important;
+  white-space: normal;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+}
+.subCardContThree {
+  font-size: 14px !important;
+  color: #FFF !important;
+  white-space: normal;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+}
+.cardShapeRound {
+  border-radius: 10px;
+}
+.colorRed {
+  color: #ff3f40 !important;
+}
+.colorGreen {
+  color:#00c220 !important;
+}
+.colorWhite {
+  color: #FFF !important;
+}
+.brackSpaceText {
+  white-space: normal;
+}
+.menuSettingIcon {
+  position: absolute;
+  font-size: 24px;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+.Proimg {
+  border-radius: 100%;
+  border: 1px solid #ff3f40;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.menuProimg {
+  border-radius: 100%;
+  border: 1px solid #ff3f40;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+}
+.mcoCounter {
+  color: #bababa;
+  margin-left: 2px;
+}
+.centerVH {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.midCenter {
+  text-align: center;
+  margin: 10px auto;
+  position: relative;
+}
+.input-control {
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+.label-control {
+  line-height: 30px;
+  font-size: 16px;
+  display: block;
+}
+.borderRed {
+  border: 1px solid #ff3f40 !important;
+}
+.textCenter {
+  text-align: center !important;
+}
+.dBlock {
+  display: block;
+}
+.dInlineBlock {
+  display: inline-block;
+}
+.clear {
+  clear: both;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.radioGroupField ion-col {
+  // display: contents;
+  display: flex;
+}
+.radioGroupField ion-label {
+ color: #ff3f40;
+ white-space: nowrap;
+}
+.radioGroupField ion-radio, .radioGroupField ion-checkbox {
+  // margin: 0px 10px 10px 4px;
+  margin: 0px 4px 0px 0px;
+  border-color:#999;
+  --border-color: #999;
+}
+.radioGroupField ion-radio.ios {
+  border: 2px solid #999;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+}
+.radioGroupField ion-checkbox.ios {
+  border: 2px solid #999;
+  border-radius: 0px;
+  width: 20px;
+  height: 20px;
+}
+.centerBlockMb20 {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+.transparentBg .centerBlockMb20 {
+  margin-bottom: 10px !important;
+}
+.marginInline-0 {
+  margin-inline: 0px;
+}
+.pt-10 {
+  padding-top: 10px;
+}
+.pt-30 {
+  padding-top: 30px;
+}
+.pb-5 {
+  padding-bottom: 5px;
+}
+.px-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.p-5 {
+  padding: 5px !important;
+}
+.mx-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.m-0 {
+  margin: 0px !important;
+}
+.pStartEnd5 {
+  --padding-start: 5px;
+  --padding-end: 5px;
+  --inner-padding-start: 5px;
+  --inner-padding-end: 5px;
+}
+.pStartEnd0 {
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --inner-padding-start: 0px;
+  --inner-padding-end: 0px;
+}
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.p-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.mb-5 {
+  margin-bottom: 5px;
+  --margin-bottom:5px;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mr-0 {
+  margin-right: 0px;
+}
+.fx {
+  display: flex;
+  white-space:nowrap
+}
+.transparentBg {
+  background: transparent !important;
+  --background: transparent !important;
+}
+.swiper-pagination-bullet-active {
+  background: #ff3f40 !important;
+}
+ion-input ::-webkit-input-placeholder, ion-datetime ::-webkit-input-placeholder {
+  color: #ff3f40 !important;
+}
+ion-input ::-moz-placeholder, ion-datetime ::-moz-placeholder {
+  color: #ff3f40 !important;
+}
+ion-input ::-ms-input-placeholder, ion-datetime ::-ms-input-placeholder {
+  color: #ff3f40 !important;
+}
+ion-input ::placeholder {
+  color: #ff3f40 !important;
+  --placeholder-opacity:1;
+}
+ion-datetime ::placeholder {
+  color: #ff3f40 !important;
+  --placeholder-opacity:1;
+}
+ion-searchbar ::placeholder {
+  color: #ff3f40 !important;
+  --placeholder-opacity:1;
+}
+ion-input {
+  color:#FFF !important;
+  border: 1px solid #ff3f40 !important;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  // --padding-top: 12px !important;
+  // --padding-bottom: 12px !important;
+  font-size: 16px !important;
+}
+ion-textarea {
+  color:#FFF !important;
+  border: 1px solid #ff3f40 !important;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  // --padding-top: 12px !important;
+  // --padding-bottom: 12px !important;
+  font-size: 16px !important;
+}
+ion-select {
+  color:#FFF !important;
+  border: 1px solid #ff3f40 !important;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  // --padding-top: 12px !important;
+  // --padding-bottom: 12px !important;
+  font-size: 16px !important;
+}
+.alert-radio-label {
+  padding-inline-start: 35px !important;
+}
+ion-datetime {
+  color: white;
+  border: 1px solid #ff3f40 !important;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  // --padding-top: 12px !important;
+  // --padding-bottom: 12px !important;
+  font-size: 16px !important;
+}
+ion-searchbar {
+  // --padding-top: 12px !important;
+  // --padding-bottom: 12px !important;
+  --border-radius: 0px;
+  --box-shadow: 0px;
+  padding: 0px !important;
+  color: white !important;
+}
+ion-searchbar .searchbar-input {
+  border: 1px solid #ff3f40 !important;
+  color: white !important;
+  font-size: 16px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  --background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  line-height: 28px ​!important;
+}
+.bg-img {
+  background: url("../assets/imgs/splash.png") no-repeat center/cover fixed;
+  --background: url(../assets/imgs/splash.png) no-repeat center/cover fixed;
+}
+.loginBg {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.logo {
+  margin: 10% auto 15% auto;
+  text-align: center;
+  width: 150px;
+  display: block;
+}
+.loginFooter {
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  line-height: 17px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-weight: 300;
+}
+.fbBtn {
+  font-size: 12px;
+}
+.fb_img {
+  width: 19px;
+  margin-right: 13px;
+}
+.userRankThumb {
+  font-size: 22px;
+}
+.userRankCount {
+  font-size: 18px;
+  color: #ff3f40;
+}
+.userRankImg {
+  height: 35px;
+}
+.titleSize {
+  font-size: 18px !important;
+}
+.backPageIcon {
+  font-size: 20px;
+}
+.proSaveIcon {
+  font-size: 26px;
+  margin-right: 10px;
+}
+.defultIcons {
+  font-size: 26px;
+  color: #ff3f40;
+}
+.chatActive .cahtTabIcon, .chatActive .chatIconText {
+  color: #ff3f40;
+}
+.cahtTabIcon {
+  color: #635e5e;
+}
+.chatIconText {
+  font-size: 11px;
+  margin-left: 5px;
+  line-height: 13px;
+  width: 60px;
+  color: #635e5e;
+}
+.mapPoint {
+  border: 1px solid #ff3f40 !important;
+  border-radius: 10px;
+}
+.featureImg {
+  height: 40px;
+}
+/* Start Custom Profile Page */
+.proImgView {
+  height:90px;
+  width: 90px;
+  object-fit: cover;
+  border-radius: 100%;  
+  border : 2px solid #fcfcfd !important;
+}
+.proActiveSignal {
+  border-radius: 100%; 
+  border : 1px solid #fcfcfd !important; 
+  background-color: #32db64;
+  margin-left: 38px;
+  height: 10px;
+  margin-top: -6px;
+  width: 10px; 
+  z-index: 99;
+  position: relative;
+}
+.circle-container {
+  position: relative;
+  width: 100%;
+  height: 22em;
+  padding: 0px;
+  margin: 0 auto;
+}
+.circle-container a {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  width: 85px;
+  height: 85px;
+  margin: -4.8%;
+  background-color: #3d3d3d;
+  border-radius: 100%;
+}
+.circle-container img {
+  display: block;
+}
+.pmstyle {
+  // width: 22% !important;
+  margin:16% 10% 1% 36% !important;
+  height: 26px;
+  display: inline-block;
+}
+.txtstyle {
+  color: #e62628;
+  font-size: 11px;
+  text-align: center;
+  margin: auto;
+  line-height: 13px;
+}
+.deg0 {
+  -webkit-transform: translate(8em);
+  transform: translate(8em);
+}
+.deg45 {
+  -webkit-transform: rotate(45deg) translate(8em) rotate(-45deg);
+  transform: rotate(45deg) translate(8em) rotate(-45deg);
+}
+.deg90 {
+  -webkit-transform: rotate(90deg) translate(8em) rotate(-90deg);
+  transform: rotate(90deg) translate(8em) rotate(-90deg);
+}
+.deg135 {
+  -webkit-transform: rotate(135deg) translate(8em) rotate(-135deg);
+  transform: rotate(135deg) translate(8em) rotate(-135deg);
+}
+.deg180 {
+  -webkit-transform: translate(-8em);
+  transform: translate(-8em);
+}
+.deg225 {
+  -webkit-transform: rotate(225deg) translate(8em) rotate(-225deg);
+  transform: rotate(225deg) translate(8em) rotate(-225deg);
+}
+.deg270 {
+  -webkit-transform: rotate(270deg) translate(8em) rotate(-270deg);
+  transform: rotate(270deg) translate(8em) rotate(-270deg);
+}
+.deg315 {
+  -webkit-transform: rotate(315deg) translate(8em) rotate(-315deg);
+  transform: rotate(315deg) translate(8em) rotate(-315deg);
+}
+/* End Custom Profile Page */
+.proBig {
+  border-radius: 10px;
+  border: 2px solid #FF3F40;
+  background-color: #272727;
+  height: 25.5vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.proSmall {
+  border-radius: 10px;
+  border: 2px solid #FF3F40;
+  background-color: #272727;
+  height: 12vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.proAddIcon {
+color: #FF3F40;
+font-size: 45px;
+}
+.editProSmallImg {
+  width: 100%;
+  height: 12vh;
+  object-fit: cover;
+}
+.rangeItemField {
+  border: 1px solid #FF3F40;
+  border-radius: 25px;
+  --background: rgba(255, 255, 255, 0.1) !important;
+  overflow: visible;
+  --border-radius: 25px;
+}
+.rangeItemField ion-range {
+  padding: 4px 15px 0px 15px;
+}
+.rangeItemField ion-range .range-knob {
+  --knob-size: 25px !important;
+  --bar-height: 3px !important;
+}
+.settingToggle {
+  padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    float: right;
+    margin-top: 5px;
+}
+.ionTableView {
+  width: 100%;
+  border: 1px solid #FF3F40;
+  border-radius: 10px;
+  --border-radius: 10px;
+}
+.ionTableView table {
+  width: 100% !important;
+}
+.ionTableView tr th, .ionTableView tr td {
+  padding: 10px 5px;
+  border: 0px solid;
+  font-size: 14px;
+}
+.ionTableView tr td ion-icon {
+  font-size: 16px;
+}
+.ionTableView table tbody tr:nth-of-type(odd) {
+  --background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+.tableHeader {
+  --background: #515151 !important;
+  background: #515151 !important;
+  border-bottom: 1px solid #868686;
+}
+.youSms {
+  margin: 10px 0px;
+  float: left;
+  width: 100%;
+  display: block;
+}
+.meSms {
+  margin: 10px 0px;
+  float: right;
+  display: block;
+}
+.youSms ion-avatar {
+  order: 1;
+  margin-right: 10px;
+  float: left;
+  display: inline-table;
+}
+.youSms .smsCont {
+  order: 2;
+  float: left;
+}
+.youSms .smsCont span {
+ text-align: right;
+}
+.meSms ion-avatar {
+  margin-left: 10px;
+  order: 2;
+  display: inline-table;
+  float: right;
+ }
+ .meSms .smsCont {
+  order: 1;
+  float: right;
+ }
+.smsCont {
+  background: #3d3d3d;
+  border-radius: 50px;
+  padding: 5px 20px;
+  margin: 0px;
+}
+.smsCont p {
+  margin: 0px 0px 4px 0px;
+  padding: 0px;
+  font-size: 13px;
+  line-height: 15px;
+  color: #fff;
+  display: block;
+}
+.smsCont span {
+  margin:0px;
+  padding: 0px;
+  font-size: 11px;
+  line-height: 12px;
+  color: #919191;
+  display: block;
+}
+.chattingSendIcon {
+  color:#FF3F40;
+  font-size: 2em;
+  padding-left: 5px;
+}
+.termServ p {
+  color: #FFF;
+  font-size: 14px;
+  line-height: 16px;
+}
+// .activePage {
+//   background: #3d3d3d;
+//   --background: #3d3d3d;
+// }
+.activePage ion-icon, .activePage ion-label {
+  color: #FFF !important;
+}
+.sideNav ion-label {
+text-transform: capitalize;
+}
+.lastNavList {
+  margin-top: 50px;
+}
+.matchFindOutCont {
+  padding: 10px 15px 5px 15px;
+  margin: 0px;
+  color: #FFF;
+}
+.customMatchCard {
+  height: 115px;
+  --min-height: 100%;
+  padding-inline-end:5px !important;
+  padding-inline-start:5px !important;
+  --inner-padding-start: 5px !important;
+  --padding-start: 5px !important;
+  --inner-padding-end: 5px !important;
+  --padding-end: 5px !important;
+}
+.customMatchCard ion-col {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.customMatchCard ion-avatar {
+  width: 60px;
+  text-align: center;
+  margin-top: -20px;
+}
+.matchQa {
+  color: #ff3f40 !important;
+  font-weight: 500 !important;
+  margin-bottom: 6px !important;
+  font-size: 14px !important;
+  line-height: 15px !important;
+}
+
+.matchAns {
+  color: #bababa !important;
+  margin-left: 2px;
+  font-weight: normal !important;
+}
+.footerIconsP {
+  padding-top: 12px;
+  padding-bottom: 6px;
+}
+.landingPage {
+  position: relative;
+  margin: 100px 10px;
+}
+/*== Date Picker */
+.picker-wrapper {
+  background: -webkit-linear-gradient(-55deg, #4b1616 50%, rgb(155, 71, 71) 100%) !important;
+  box-shadow: .4rem .4rem 2.4rem .2rem hsla(235, 42%, 42%, 0.3);
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+.picker-opt {
+  color: #FFF;
+}
+.picker-button.sc-ion-picker-md, .picker-button.ion-activated.sc-ion-picker-md {
+  color: #ff3f40;
+}
+.picker-prefix, .picker-suffix, .picker-opt.picker-opt-selected {
+  color: #ff3f40;
+}
+/*== / Date Picker */
+/*== Drop down select Popup ==*/
+.select-alert .alert-wrapper {
+  background: -webkit-linear-gradient(-55deg, #4b1616 50%, rgb(155, 71, 71) 100%) !important;
+  box-shadow: .4rem .4rem 2.4rem .2rem hsla(235, 42%, 42%, 0.3);
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+.select-alert .alert-radio-icon {
+  border-color: #FFF;
+}
+.select-alert .alert-radio-label {
+  color: #FFF !important;
+}
+.select-alert .alert-button {
+  color: #ff3f40;
+}
+/*== / Drop down select Popup ==*/
+.uploadOptIcon {
+  font-size: 45px;
+  margin-top: 20px;
+}
+
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+img.vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+
+@keyframes inner-ripple {
+  0% {
+    transform: scale(1);
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+  30% {
+    transform: scale(1);
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes inner-ripple {
+  0% {
+    transform: scale(1);
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+  30% {
+    transform: scale(1);
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes inner-ripple {
+  0% {
+    transform: scale(1);
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+  30% {
+    transform: scale(1);
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+}
+.boost {
+  width: 34px;
+  height: 34px;
+  position: relative;
+}
+.boost p {
+  top: -16px;
+  left: 6px;
+  font-size: 13px;
+  position: relative;
+  color: #FFF;
+}
+.boost img{
+  position:relative;
+  text-shadow:-1px -1px #333;
+  border-radius: 50%;
+}
+.boost:before {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #CD5C5C;
+  z-index:-200;
+  -webkit-animation: inner-ripple 2000ms linear infinite;
+  -moz-animation: inner-ripple 2000ms linear infinite;
+  animation: inner-ripple 2000ms linear infinite;
+}
+.menuUserName {
+  font-size: 17px;
+  color: #FFF;
+}
+/*============== End Custom Css by Santanu ==============*/
+// ion-card-content.subCardCont1 {
+//   --ion-background-color: #09661c;
+// }

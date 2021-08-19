@@ -1,0 +1,26 @@
+<ion-app>
+    <ion-content fullscreen class="bg-img">
+        <img class="logo" src="assets/imgs/logo.png">
+        <ion-card class="loginBg">
+            <ion-list class="ion-padding transparentBg">
+                <form [formGroup]="loginForm">
+                    <ion-input class="mb-10 input-control" type="email" placeholder="Email" formControlName="userName">
+                    </ion-input>
+                    <ion-input class="mb-10 input-control" type="password" formControlName="passWord" placeholder="Password"
+                        [(ngModel)]="password">
+                    </ion-input>
+                    <a class="centerBlockMb20" (click)="passwordreset()">Forgot login details? Get Help</a>
+                    <ion-button class="loginBtn" shape="round" color="danger" expand="block" (click)="signin()">Login
+                    </ion-button>
+                    <ion-label class="centerBlockMb20" color="light" (click)="signup()"><u>Don't have an account? Sign
+                            up</u></ion-label>
+                    <ion-label class="centerBlockMb20" color="light"><strong>OR</strong></ion-label>
+                    <ion-button shape="round" expand="block" class="fbBtn" (click)="FBLogin()"><img class="fb_img"
+                            src="assets/imgs/facebook.png"> |&nbsp; &nbsp;Login
+                        using facebook</ion-button>
+                </form>
+            </ion-list>
+        </ion-card>
+        <p class="loginFooter"  (click)="toc()">By logging in, you agree to our <br>terms & condition</p>
+    </ion-content>
+</ion-app>

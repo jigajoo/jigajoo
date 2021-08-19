@@ -1,0 +1,29 @@
+<ion-app>
+  <ion-content fullscreen class="bg-img">
+    <img class="logo" src="assets/imgs/logo.png">
+    <ion-card class="loginBg">
+      <ion-list class="ion-padding transparentBg">
+        <ion-label class="centerBlockMb20" color="light">
+          <h2 class="titleSize">Sign Up</h2>
+        </ion-label>
+        <form [formGroup]="signupform">
+          <ion-input class="mb-10 input-control" type="email" placeholder="Email" formControlName="email"></ion-input>
+          <ion-input class="mb-10 input-control" type="password" (ionChange)="getPassword($event)" placeholder="Password" formControlName="password">
+          </ion-input>
+          <ion-input class="mb-10 input-control" type="password" placeholder="ConfirmPassword" (ionChange)="getCnfPassword($event)"
+            formControlName="confirmPassword"></ion-input>
+          <!-- <ion-text color="danger" *ngIf="userFormGroup.controls.confirmPasswossrd.errors">Confirm Password must match -->
+          <!-- </ion-text> -->
+          <ion-item class="transparentBg" lines="none">
+            <ion-checkbox color="dark" slot="start" class="marginInline-0 borderRed mx-10" formControlName="age">
+            </ion-checkbox>
+            <ion-label>Please confirm you are 18+</ion-label>
+          </ion-item>
+          <ion-button class="loginBtn" shape="round" color="danger" expand="block" (click)="signup()">Sign Up
+          </ion-button>
+        </form>
+        <ion-label class="dBlock textCenter pt-10" color="light" (click)="signin()">Already have an account? Sign In</ion-label>
+      </ion-list>
+    </ion-card>
+  </ion-content>
+</ion-app>

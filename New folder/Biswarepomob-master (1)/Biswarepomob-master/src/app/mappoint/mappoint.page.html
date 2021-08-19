@@ -1,0 +1,18 @@
+<ion-app>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start" (click)="back()">
+          <ion-icon class="backPageIcon" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Match Map Point(s)</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <!--iframe class="mapPoint" width="100%" height="100%" id="gmap_canvas"
+        src="https://maps.google.com/maps?q=india&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
+        marginheight="0" marginwidth="0"></iframe-->
+      <div #map id="map" style="position: inherit !important; overflow: hidden;"></div>    
+    </ion-content>
+  </div>
+</ion-app>

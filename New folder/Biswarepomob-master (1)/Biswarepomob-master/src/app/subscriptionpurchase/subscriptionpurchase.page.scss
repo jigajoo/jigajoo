@@ -1,0 +1,26 @@
+.swiper-slide {
+    display: block;
+}
+ion-slide > p {
+    margin: 10px auto 15px auto;
+    font-size: 14px;
+}
+.slideIconBase {
+    background: #FFF;
+    position: relative;
+    margin: 0px auto 50px auto;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px rgb(100 100 100 / 100%);
+}
+.slideIconBase ion-icon {
+    color: #FF3F40;
+    font-size: 35px;
+}
+ 
