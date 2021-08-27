@@ -19,7 +19,7 @@
           <ion-icon name="person" slot="start" class="colorRed"></ion-icon>
           <ion-label class="colorRed">Profile performance</ion-label>
         </ion-item>
-        <ion-item lines="none "  (click)="goto('chat')">
+        <ion-item lines="none " (click)="goto('chat')">
           <ion-icon name="chatbox-ellipses" slot="start" class="colorRed"></ion-icon>
           <ion-label class="colorRed">Messages</ion-label>
         </ion-item>
@@ -52,17 +52,12 @@
           <ion-label class="colorRed">Block user</ion-label>
         </ion-item>
         <ion-item lines="none" (click)="Logout()" class="lastNavList">
-            <ion-icon name="log-out" slot="start" class="colorRed"></ion-icon>
-            <ion-label class="colorRed" >Logout</ion-label>
+          <ion-icon name="log-out" slot="start" class="colorRed"></ion-icon>
+          <ion-label class="colorRed">Logout</ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
-
-
-
-
-
 
   <div class="ion-page" main>
     <ion-header>
@@ -73,114 +68,12 @@
         <ion-title text-center>Find Match </ion-title>
       </ion-toolbar>
     </ion-header>
-    <app-jigazoocard [cards]="cards" (choiceMade)="logChoice($event)" class="fullh"></app-jigazoocard>
-    <!--ion-content fullscreen class="ion-padding"> 
-        <!--div *ngIf="rightSwipeBlock">
-            <ion-item  class="rightSwipBlock">
-                <ion-icon name="close-circle" style="position:fixed; top:5px; left:90%;font-size: 35px;color: #fe2829;" (click)="CloseRightSwipPopup()"></ion-icon>
-                <p style="text-align: center"> Slow down Dude ! </p><p style="text-align: center">You have exhusted your right swipe. <br> If you want to swip more, please upgrade </p>
-                <br>
-                <button ion-button block round color="primary" (click)="upgrade()">upgrade</button>
-            </ion-item>
-        </div>
-
-        <div *ngIf="showLoading" class="load">
-            <img src={{profileImage}}>
-        </div>
-
-        <div *ngIf="content.length==0 && !showLoading" style="height: 47vh;width:100%;text-align: center;">
-            <p style="text-align: center;margin-top:50%;position:relative"> No more match <br>Keep checking again… </p>
-            <img src={{profileImage}} style="border-radius: 50%;width:150px;height:150px; border: 2px solid gray;">
-         </div-->
-
-         <div>
-            <app-jigazoocard [cards]="cards" (choiceMade)="logChoice($event)"></app-jigazoocard>
-         </div>
-
-
-        <!-- *ngIf="content.length>0 && !showLoading"div *ngIf="pointreward" class="reward-point-award fivePhasesFadeIn">
-                {{rewardpointAwarded}}
-        </div>
-        <div *ngIf="showAutoSwipe" >
-            <img class="auto-swipe" src="assets/imgs/AutoSwipe.png" (click)="autoswipe(2.5,5,17)" title='Auto Right Swipe'>
-        </div>
-
-        <div *ngIf="showGallaryFlag" style="z-index: 999;margin-left: 80%; position: fixed"><ion-icon  name="close-circle" style="font-size: 40px;color: #fe2829;" (click)="closeGalary()"></ion-icon></div>
-        <div *ngIf="showGallaryFlag" style="z-index:2;position:fixed;width:90%;border-radius: 3%">
-            <ion-slides #mySlider pager="true" options="slideOpts" (click)="closeGalary()">
-                <ion-slide *ngFor="let slide of showGallary" >
-                        <img src='http://jigaju.esy.es/uploads/thumbnail/{{slide}}' style="height: 75vh;width:100%;border-radius: 3%"  >
-                </ion-slide>
-            </ion-slides>
-        </div>
-
-        <div *ngIf="content.length>0 && !showLoading" style="z-index:1;height: 72vh;width:100%;">
-                <div class="stack" swing-stack  [stackConfig]="stackConfig"  #myswing1 (throwoutleft)="voteUp(false,'0')" (throwoutdown)="voteUp(true,'1',0)" (throwoutup)='voteUp(true,5,21)' (throwoutright)="voteUp(true,'2.5',8)">
-                <div swing-card #mycards1 *ngFor="let data of content"  style="position:fixed; max-width:95%; width: 1200px;margin:auto;right: calc(2%);" >
-                    <div class="img-box">
-                        <img [ngClass]="cardRewinded?'card_rewind':''" style="object-fit: cover;" src='http://jigaju.esy.es/uploads/thumbnail/{{data.profile_image}}' (click)='profile(data.id)' useImg />
-                        <div class="topcolor"  style="padding-left:79vw;z-index:2;padding-top: 3vh;"  >
-                            <ion-icon class="heart" id="addwishlist_{{data.id}}" (click)="wishlist(data.id)" name="heart" style="font-size: 25px;color:white;" ></ion-icon>
-                            <div *ngIf="data.User_Gallary" style="padding-left:30%;z-index:1">
-                                <ion-icon class="heart" (click)="showUserGallary(data.User_Gallary)" ios="ios-photos" md="md-photos" style="font-size: 25px;color:white;"></ion-icon>
-                            </div>
-                        </div>
-                        <div class="text">
-                        <ion-row style="width:100%">
-                            <ion-col col-5>
-                            {{data.fname}} {{data.lname}}, {{data.age}}
-                            </ion-col>
-                            <ion-col col-3>
-                            </ion-col>
-                            <ion-col  col-4 style="text-align:right" >
-                                  <ion-icon name="pin" style="color:white"></ion-icon> {{data.distance}} Km
-                            </ion-col>
-
-                        </ion-row>
-                        </div>
-                     </div>
-                </div>
-                </div>
-        </div>
-
-        <div id="buyDiv" *ngIf="buyinfo" >
-            <ion-row>
-            <ion-col col-12 >
-              <div class="DivPurchase" style="top: -20em;" >
-                    <div style="padding: 10px 0 5px 0;">
-                        <span >
-                            <img style="height:40px;width:40px" src="http://jigaju.esy.es/assets/images/{{logo}}" >
-                        </span>
-                    </div>
-                        <div style="padding:  5px 0 10px 0;">
-                            <div style="font-size: 16px;color:#fe2829;font-family: none;">{{name}}</div>
-                    </div>
-                  <ion-row>
-                    <ion-col col-4 s *ngFor="let data of packageData; let i = index">
-                      <ion-card class="cards" [ngClass]="packageSelected===data?'activeborder':'cards'" (click)="SelectPackage(packageData,i)">
-                          <ion-card-header style="font-size: 11px;text-decoration: none;" class="card-head-scheme" [ngClass]="packageSelected===data?'active':'card-head'">
-                           {{data.Product_Catagory}}
-                          </ion-card-header >
-                          <ion-card-content style="padding: 0px;">
-                            <p style="font-size: 10px;text-decoration: none;" class="card-price-scheme" [ngClass]="packageSelected===data?'active':'card-manual-scheme'">Packs :{{data.pack}}</p>
-                            <p style="font-size: 10px;text-decoration: none;" class="card-manual-scheme" [ngClass]="packageSelected===data?'active':'card-manual-scheme'">{{data.Monthly_price}}/Month </p>
-                          </ion-card-content>
-                      </ion-card>
-                    </ion-col>
-                    <ion-col col-12>
-                        <button ion-button  class="continueBtn" round (click)="buy()">Buy Now</button>
-                        <button ion-button  class="continueBtn" round (click)="back()">Cancel</button>
-                    </ion-col>
-                </ion-row>
-              </div>
-            </ion-col>
-            </ion-row>
-        </div>
-        
+    <ion-content fullscreen class="ion-padding landingPage">
+      <app-jigazoocard [cards]="cards" (choiceMade)="logChoice($event)"></app-jigazoocard>
     </ion-content>
-    <!--ion-footer class="ion-no-border ion-no-padding" style="margin-top: -1px;">
+    <ion-footer class="ion-no-border ion-no-padding" style="margin-top: -1px;">
       <ion-toolbar>
-        <ion-grid>
+        <ion-grid class="footerIconsP">
           <ion-row>
             <ion-col size="1"></ion-col>
             <ion-col size="2" class="centerVH" (click)='voteUp(false,0)'>
@@ -189,13 +82,14 @@
             <ion-col size="2" class="centerVH" (click)='rewind()'>
               <img style="width: 40px;" src="assets/imgs/undo.svg" />
             </ion-col>
-            <ion-col size="2" (click)='voteUp(true,10,21)'>
-              <img class="vert-move" style="width: 100%;" src="assets/imgs/Super_like.svg" />
+            <ion-col size="2" class="centerVH" (click)='voteUp(true,10,21)'>
+              <img class="vert-move" style="width:48px;" src="assets/imgs/Super_like.svg" />
             </ion-col>
             <ion-col size="2" class="centerVH" (click)='voteUp(true,2.5)'>
               <img style="width: 40px;" src="assets/imgs/like.svg" />
             </ion-col>
             <ion-col size="2" class="centerVH" (click)='userBoost(10)'>
+              <!-- <img style="width: 34px;" src="assets/imgs/Bost.svg" /> -->
               <div class="boost">
                 <img style="width: 100%;" src="assets/imgs/Bost.svg">
                 <p>{{showBoosterTime}}</p>
@@ -205,7 +99,6 @@
           </ion-row>
         </ion-grid>
       </ion-toolbar>
-    </ion-footer-->
+    </ion-footer>
   </div>
 </ion-app>
-<!--ion-menu-controller></ion-menu-controller-->
